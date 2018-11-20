@@ -240,7 +240,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL debugEnabled;)
 + (void)resetCampaignDataWithCompletion:(void (^ _Nullable)(void))completion;
 /// Preloads a list of forms to make them available to the user even without network connectivity.
 + (void)preloadFeedbackFormsWithFormIDs:(NSArray<NSString *> * _Nonnull)formIDs;
-+ (void)loadFeedbackForm:(NSString * _Nonnull)formID screenshot:(UIImage * _Nullable)screenshot theme:(id _Nonnull)theme;
++ (void)loadFeedbackForm:(NSString * _Nonnull)formID screenshot:(UIImage * _Nullable)screenshot;
 + (UIImage * _Nullable)takeScreenshot:(UIView * _Nonnull)view SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
