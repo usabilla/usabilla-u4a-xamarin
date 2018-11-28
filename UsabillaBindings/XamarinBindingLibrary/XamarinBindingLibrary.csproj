@@ -46,8 +46,8 @@
     <NativeReference Include="..\..\Framework_WithUpdates\Usabilla.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
-      <Frameworks>Foundation UIKit</Frameworks>
       <ForceLoad>True</ForceLoad>
+      <Frameworks>Foundation UIKit</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

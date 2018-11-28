@@ -14,6 +14,9 @@ namespace UsabillaNative
         [Static, Export("customVariables")]
         NSDictionary<NSString, NSObject> CustomVariables { get; set; }
 
+        [Static, Export("delegate")]
+        UsabillaDelegate Delegate { get; set; }
+
         [Static, Export("localizedStringFile")]
         String LocalizedStringFile { get; set; }
 
@@ -27,7 +30,7 @@ namespace UsabillaNative
         bool CanDisplayCampaigns { get; set; }
 
         [Static, Export("debugEnabled")]
-        bool debugEnabled { get; set; }
+        bool DebugEnabled { get; set; }
 
         [Static, Export("sendEvent:")]
         void SendEvent(string eventName);
@@ -41,33 +44,32 @@ namespace UsabillaNative
         [Static, Export("preloadFeedbackForms:")]
         void PreloadFeedbackForms(String[] formIDs);
 
-        [Static, Export("loadFeedbackForm:screenshot:theme:")]
-        void LoadFeedbackForm(string formID, [NullAllowed]UIImage image, IntPtr theme);
+        [Static, Export("loadFeedbackForm:screenshot:")]
+        void LoadFeedbackForm(string formID, [NullAllowed]UIImage image);
 
         [Static, Export("takeScreenshot:")]
         [NullAllowed] UIImage TakeScreenshot(UIView view);
-
     }
 
     [BaseType(typeof(NSObject))]
-    [Protocol, Model]
+    [Model]
     interface UsabillaDelegate
     {
-        [Export("formDidLoad:")]
+        [Export("formDidLoadWithForm:")]
         void FormDidLoad(UINavigationController form);
 
-        [Export("formDidFailLoading:")]
+        [Export("formDidFailLoadingWithError:")]
         void FormDidFailLoading(UBError form);
 
-        [Export("formDidClose:results:isRedirectToAppStoreEnabled")]
+        [Export("formDidCloseWithFormID:results:isRedirectToAppStoreEnabled:")]
         void FormDidClose(String formID, NSArray feedbackResults, bool isRedirectToAppStoreEnabled);
 
         //func formWillClose(form: UINavigationController, formID: String, withFeedbackResults results: [FeedbackResult], isRedirectToAppStoreEnabled: Bool)
-        [Export("formWillClose:formID:results:isRedirectToAppStoreEnabled:")]
+        [Export("formWillCloseWithForm:formID:results:isRedirectToAppStoreEnabled:")]
         void FormWillClose(UINavigationController form, String formID, NSArray feedbackResults, bool isRedirectToAppStoreEnabled);
 
         //func campaignDidClose(withFeedbackResult result: FeedbackResult, isRedirectToAppStoreEnabled: Bool)
-        [Export("campaignDidClose:isRedirectToAppStoreEnabled:")]
+        [Export("campaignDidCloseWithFeedbackResult:isRedirectToAppStoreEnabled:")]
         void CampaignDidClose(FeedbackResult feedbackResult, bool isRedirectToAppStoreEnabled);
     }
 }
