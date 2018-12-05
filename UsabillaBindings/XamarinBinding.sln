@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinBindingLibrary", "Xa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleUsing", "SampleUsing\SampleUsing.csproj", "{0ECCA9F3-FB3D-443D-9731-DEFB13C74A60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.Android", "Xamarin.Usabilla.Android\Xamarin.Usabilla.Android.csproj", "{2174A629-407A-4C77-A88D-A7F3C71E1064}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,5 +41,17 @@ Global
 		{0ECCA9F3-FB3D-443D-9731-DEFB13C74A60}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{0ECCA9F3-FB3D-443D-9731-DEFB13C74A60}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{0ECCA9F3-FB3D-443D-9731-DEFB13C74A60}.Debug|iPhone.Build.0 = Debug|iPhone
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Release|iPhone.Build.0 = Release|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
