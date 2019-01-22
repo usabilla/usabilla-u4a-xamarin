@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleUsing", "SampleUsing\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.Android", "Xamarin.Usabilla.Android\Xamarin.Usabilla.Android.csproj", "{2174A629-407A-4C77-A88D-A7F3C71E1064}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleUsingXamarinAndroid", "SampleUsingXamarinAndroid\SampleUsingXamarinAndroid.csproj", "{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +55,17 @@ Global
 		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{2174A629-407A-4C77-A88D-A7F3C71E1064}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Release|iPhone.Build.0 = Release|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{5D6958A9-A0DB-4FB5-ADBE-20B5B59520F6}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

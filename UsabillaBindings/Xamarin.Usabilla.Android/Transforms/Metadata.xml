@@ -7,4 +7,16 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='SliderSeekBar']" /> 
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='StarRatingBar']" />
+    
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.presenter']/class[@name='FormPresenter']" />
+    
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.presenter']/class[@name='BasePagePresenter']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.presenter']/class[@name='PagePresenter']" />
+    
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.view']/class[@name='PageView']" />
+    
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.field.presenter.common']/class[@name='FieldPresenter']" />
+   
 </metadata>
