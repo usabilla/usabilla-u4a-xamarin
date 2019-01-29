@@ -18,5 +18,7 @@
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.view']/class[@name='PageView']" />
     
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.field.presenter.common']/class[@name='FieldPresenter']" />
+    
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform']/class[@name='UsabillaInternal']" />
    
 </metadata>
