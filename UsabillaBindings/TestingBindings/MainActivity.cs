@@ -14,8 +14,8 @@ namespace TestingBindings
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            Com.Usabilla.Sdk.Ubform.Usabilla usabilla = Com.Usabilla.Sdk.Ubform.Usabilla.Instance;//.Instance.Initialize(ApplicationContext, "");
-            var t = 0;
+            var t = Com.Usabilla.Sdk.Ubform.Bus.Bus.Instance;//.Instance.Initialize(ApplicationContext, "");
+            var sometext = "asdasd";
         }
     }
 }

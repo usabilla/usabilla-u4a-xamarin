@@ -9,7 +9,8 @@
   -->
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='SliderSeekBar']" /> 
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='StarRatingBar']" />
-    
+    <remove-node path="api/package[@name='com.usabilla.sdk.ubform']/class[@name='IUsabillaInternalInterface']"/>
+    <remove-node path="api/package[@name='com.usabilla.sdk.ubform']/class[@name='UsabillaInternal']"/>
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.presenter']/class[@name='FormPresenter']" />
     
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.presenter']/class[@name='BasePagePresenter']" />
