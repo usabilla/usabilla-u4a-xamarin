@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Com.Usabilla.Sdk.Ubform;
+using Com.Usabilla.Sdk.Ubform.Sdk.Form;
+using System;
 
 namespace TestingBindings
 {
@@ -10,12 +13,28 @@ namespace TestingBindings
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            var t = Com.Usabilla.Sdk.Ubform.Bus.Bus.Instance;//.Instance.Initialize(ApplicationContext, "");
-            var sometext = "asdasd";
+            Usabilla.Instance.Initialize(BaseContext);
+            Usabilla.Instance.LoadFeedbackForm("59787ce6022bf728fc184e4f", new FormCallback());
+        }
+    }
+
+    public class FormCallback : Java.Lang.Object, IUsabillaFormCallback
+    {
+        public void FormLoadFail()
+        {
+
+        }
+
+        public void FormLoadSuccess(IFormClient p0)
+        {
+
+        }
+
+        public void MainButtonTextUpdated(string p0)
+        {
+
         }
     }
 }
