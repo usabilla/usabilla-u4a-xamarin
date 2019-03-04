@@ -8,7 +8,7 @@
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='SliderSeekBar']" /> 
-    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='StarRatingBar']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='StarRatingBar']" /> 
     
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.presenter']/class[@name='FormPresenter']" />
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.presenter']/class[@name='BasePagePresenter']" />
