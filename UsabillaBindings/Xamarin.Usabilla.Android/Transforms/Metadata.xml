@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
     <!--
   This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
@@ -7,6 +7,7 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='SliderSeekBar']" /> 
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.customViews']/class[@name='StarRatingBar']" /> 
     
@@ -14,8 +15,15 @@
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.presenter']/class[@name='BasePagePresenter']" />
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.presenter']/class[@name='PagePresenter']" />
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.page.view']/class[@name='PageView']" />
+    
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form']/class[@name='BaseForm']"/>
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form']/class[@name='PassiveFormFragment']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form']/class[@name='CampaignFormFragment']" />
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.model']/class[@name='FormModel']" />
+  
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.eventengine.rules']/class[@name='BaseRule']" />
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.field.presenter.common']/class[@name='FieldPresenter']" />
+
+    <attr path="/api/package[@name='com.usabilla.sdk.ubform']" name="managedName">Usabilla</attr>
    
 </metadata>

@@ -1,44 +1,40 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
-using Com.Usabilla.Sdk.Ubform;
-using Com.Usabilla.Sdk.Ubform.Sdk.Form;
 using System;
+using Android.Support.V7.App;
+using Usabilla;
+using Com.Usabilla.Sdk.Ubform.Sdk.Form;
+using Com.Usabilla.Sdk.Ubform.DI;
 
 namespace TestingBindings
 {
     [Activity(Label = "TestingBindings", MainLauncher = true, Icon = "@mipmap/icon")]
-    public class MainActivity : Activity
+    public class MainActivity : AppCompatActivity, IUsabillaFormCallback
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
 
-            Usabilla.Instance.Initialize(BaseContext);
-            Usabilla.Instance.LoadFeedbackForm("59787ce6022bf728fc184e4f", new FormCallback { ParentActivity = this });
+            Usabilla.Usabilla.Instance.Initialize(BaseContext, "71f49b32-c65d-4565-b923-3b176d053122");
+            Usabilla.Usabilla.Instance.LoadFeedbackForm("59787ce6022bf728fc184e4f", this);
+
         }
-    }
 
-    public class FormCallback : Java.Lang.Object, IUsabillaFormCallback
-    {
-        public Activity ParentActivity { get; set; }
-
-        public void FormLoadFail()
+        void IUsabillaFormCallback.FormLoadFail()
         {
 
         }
 
-        public void FormLoadSuccess(IFormClient p0)
+        void IUsabillaFormCallback.FormLoadSuccess(IFormClient p0)
         {
-            //var fragmentTransaction = ParentActivity.FragmentManager.BeginTransaction();
-            //fragmentTransaction.Add(p0, "usabilla_fomr");
+            p0.Fragment.Show(SupportFragmentManager, "FORM");
         }
 
-        public void MainButtonTextUpdated(string p0)
+        void IUsabillaFormCallback.MainButtonTextUpdated(string p0)
         {
 
         }
     }
 }
-
