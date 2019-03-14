@@ -11,14 +11,6 @@ using Com.Usabilla.Sdk.Ubform.Sdk.Entity;
 
 namespace TestingBindings
 {
-    public class MyPassiveReceiver : BroadcastReceiver
-    {
-        public override void OnReceive(Context context, Intent intent)
-        {
-            ((MainActivity)context).RemoveFragment();
-        }
-    }
-
     public class MyCampaignReceiver : BroadcastReceiver
     {
         public override void OnReceive(Context context, Intent intent)
@@ -34,13 +26,28 @@ namespace TestingBindings
     [Activity(Label = "TestingBindings", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : AppCompatActivity, IUsabillaFormCallback
     {
-        readonly int SCREEN_SIZE_THRESHOLD_FOR_FULL_SCREEN_FORM = 7;
-        readonly String FRAGMENT_TAG = "Sample app fragment";
+        private readonly int SCREEN_SIZE_THRESHOLD_FOR_FULL_SCREEN_FORM = 7;
+        private readonly String FRAGMENT_TAG = "Sample app fragment";
 
-        readonly MyPassiveReceiver passiveReceiver = new MyPassiveReceiver();
-        readonly IntentFilter passiveFilter = new IntentFilter(UbConstants.IntentCloseForm);
-        readonly MyCampaignReceiver campaignReceiver = new MyCampaignReceiver();
-        readonly IntentFilter campaignFilter = new IntentFilter(UbConstants.IntentCloseCampaign);
+        private MyPassiveReceiver passiveReceiver;
+        private readonly IntentFilter passiveFilter = new IntentFilter(UbConstants.IntentCloseForm);
+        private readonly MyCampaignReceiver campaignReceiver = new MyCampaignReceiver();
+        private readonly IntentFilter campaignFilter = new IntentFilter(UbConstants.IntentCloseCampaign);
+
+        private class MyPassiveReceiver : BroadcastReceiver
+        {
+            private readonly MainActivity mainActivity;
+
+            public MyPassiveReceiver(MainActivity mainActivity)
+            {
+                this.mainActivity = mainActivity;
+            }
+
+            public override void OnReceive(Context context, Intent intent)
+            {
+                mainActivity.RemoveFragment();
+            }
+        }
 
         public void FormLoadFail()
         {
@@ -54,21 +61,21 @@ namespace TestingBindings
 
         public void MainButtonTextUpdated(string p0)
         {
-            throw new NotImplementedException();
+           // do nothing
         }
 
         protected override void OnStart()
         {
             base.OnStart();
-            RegisterReceiver(passiveReceiver, passiveFilter);
-            RegisterReceiver(campaignReceiver, campaignFilter);
+            Android.Support.V4.Content.LocalBroadcastManager.GetInstance(this).RegisterReceiver(passiveReceiver, passiveFilter);
+            Android.Support.V4.Content.LocalBroadcastManager.GetInstance(this).RegisterReceiver(campaignReceiver, campaignFilter);
         }
 
         protected override void OnStop()
         {
             base.OnStop();
-            UnregisterReceiver(passiveReceiver);
-            UnregisterReceiver(campaignReceiver);
+            Android.Support.V4.Content.LocalBroadcastManager.GetInstance(this).UnregisterReceiver(passiveReceiver);
+            Android.Support.V4.Content.LocalBroadcastManager.GetInstance(this).UnregisterReceiver(campaignReceiver);
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -76,13 +83,15 @@ namespace TestingBindings
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
 
+            passiveReceiver = new MyPassiveReceiver(this);
+
             Button buttonPassive = FindViewById<Button>(Resource.Id.button_passive);
             Button buttonCampaign = FindViewById<Button>(Resource.Id.button_campaign);
             Button buttonReset = FindViewById<Button>(Resource.Id.button_reset);
             EditText eventText = FindViewById<EditText>(Resource.Id.event_field);
 
             buttonPassive.Click += (sender, e) => {
-                Usabilla.Usabilla.Instance.LoadFeedbackForm("59787ce6022bf728fc184e4f", this);
+                Usabilla.Usabilla.Instance.LoadFeedbackForm("59787c8c683e962bb938b755", this);
             };
             buttonCampaign.Click += (sender, e) => {
                 Usabilla.Usabilla.Instance.SendEvent(BaseContext, eventText.Text);
@@ -90,8 +99,8 @@ namespace TestingBindings
             buttonReset.Click += (sender, e) => {
                 Usabilla.Usabilla.Instance.ResetCampaignData(BaseContext);
             };
-
             Usabilla.Usabilla.Instance.Initialize(BaseContext, "71f49b32-c65d-4565-b923-3b176d053122");
+            Usabilla.Usabilla.Instance.UpdateFragmentManager(SupportFragmentManager);
 
             var fragment = SupportFragmentManager.FindFragmentByTag(FRAGMENT_TAG);
             if (fragment != null)
