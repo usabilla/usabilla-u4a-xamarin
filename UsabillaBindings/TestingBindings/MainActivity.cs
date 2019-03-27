@@ -91,7 +91,7 @@ namespace TestingBindings
             EditText eventText = FindViewById<EditText>(Resource.Id.event_field);
 
             buttonPassive.Click += (sender, e) => {
-                Usabilla.Usabilla.Instance.LoadFeedbackForm("59787c8c683e962bb938b755", this);
+                Usabilla.Usabilla.Instance.LoadFeedbackForm("INSERT FORM ID", this);
             };
             buttonCampaign.Click += (sender, e) => {
                 Usabilla.Usabilla.Instance.SendEvent(BaseContext, eventText.Text);
@@ -99,7 +99,7 @@ namespace TestingBindings
             buttonReset.Click += (sender, e) => {
                 Usabilla.Usabilla.Instance.ResetCampaignData(BaseContext);
             };
-            Usabilla.Usabilla.Instance.Initialize(BaseContext, "71f49b32-c65d-4565-b923-3b176d053122");
+            Usabilla.Usabilla.Instance.Initialize(BaseContext, "INSERT APP ID");
             Usabilla.Usabilla.Instance.UpdateFragmentManager(SupportFragmentManager);
 
             var fragment = SupportFragmentManager.FindFragmentByTag(FRAGMENT_TAG);
