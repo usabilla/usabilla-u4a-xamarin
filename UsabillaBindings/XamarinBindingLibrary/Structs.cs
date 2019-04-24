@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using Foundation;
 using UIKit;
 
-namespace UsabillaNative
+namespace UsabillaIos
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct FeedbackResult
