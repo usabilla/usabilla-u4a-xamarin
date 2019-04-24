@@ -5,7 +5,7 @@ using Android.Util;
 using Android.Content;
 using System;
 using Android.Support.V7.App;
-using Usabilla;
+using UsabillaAndroid;
 using Com.Usabilla.Sdk.Ubform.Sdk.Form;
 using Com.Usabilla.Sdk.Ubform.Sdk.Entity;
 
@@ -91,16 +91,16 @@ namespace TestingBindings
             EditText eventText = FindViewById<EditText>(Resource.Id.event_field);
 
             buttonPassive.Click += (sender, e) => {
-                Usabilla.Usabilla.Instance.LoadFeedbackForm("INSERT FORM ID", this);
+                Usabilla.Instance.LoadFeedbackForm("INSERT FORM ID", this);
             };
             buttonCampaign.Click += (sender, e) => {
-                Usabilla.Usabilla.Instance.SendEvent(BaseContext, eventText.Text);
+                Usabilla.Instance.SendEvent(BaseContext, eventText.Text);
             };
             buttonReset.Click += (sender, e) => {
-                Usabilla.Usabilla.Instance.ResetCampaignData(BaseContext);
+                Usabilla.Instance.ResetCampaignData(BaseContext);
             };
-            Usabilla.Usabilla.Instance.Initialize(BaseContext, "INSERT APP ID");
-            Usabilla.Usabilla.Instance.UpdateFragmentManager(SupportFragmentManager);
+            Usabilla.Instance.Initialize(BaseContext, "INSERT APP ID");
+            Usabilla.Instance.UpdateFragmentManager(SupportFragmentManager);
 
             var fragment = SupportFragmentManager.FindFragmentByTag(FRAGMENT_TAG);
             if (fragment != null)
