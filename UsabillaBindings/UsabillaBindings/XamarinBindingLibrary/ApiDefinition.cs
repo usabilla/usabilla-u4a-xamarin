@@ -41,8 +41,8 @@ namespace UsabillaIos
         [Static, Export("removeCachedForms")]
         void RemoveCachedForms();
 
-        [Static, Export("resetCampaignData:")]
-        void ResetCampaignData(Action completion);
+        [Static, Export("resetCampaignDataWithCompletion:")]
+        void ResetCampaignData([NullAllowed]Action completion);
 
         [Static, Export("preloadFeedbackForms:")]
         void PreloadFeedbackForms(String[] formIDs);
