@@ -65,5 +65,9 @@ private class CustomUsabillaDelegate : UsabillaDelegate {
     }
 }
 ```
+And then load the form to present 
+
+`Usabilla.LoadFeedbackForm("[Your FORM ID here]", null);`
+
 
 You can refer to the [native iOS SDK](https://github.com/usabilla/usabilla-u4a-ios-swift-sdk), for in-depth explanation of the SDK.
