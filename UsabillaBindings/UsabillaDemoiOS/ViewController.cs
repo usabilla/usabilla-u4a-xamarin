@@ -9,6 +9,7 @@ namespace UsabillaDemoiOS
 {
     public partial class ViewController : UIViewController
     {
+      
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -23,12 +24,10 @@ namespace UsabillaDemoiOS
             
                 NSDictionary<NSString, NSObject> dict = new NSDictionary<NSString, NSObject>(new NSString("tesr"), NSObject.FromObject("xamarint"));
 
-                Usabilla.Initialize("[YOU APP ID HERE]", null);
+                Usabilla.Initialize("[YOUR APP ID HERE]", null);
                 Usabilla.Delegate = new CustomUsabillaDelegate() { ViewController = this };
                 Usabilla.CustomVariables = dict;
-                Usabilla.ResetCampaignData(null);
-
-                Usabilla.LoadFeedbackForm("[YOUR FORM ID HERE]", null);
+                //Usabilla.ResetCampaignData(null);
             }
             catch (Exception ex)
             {
@@ -45,6 +44,17 @@ namespace UsabillaDemoiOS
             await PutTaskDelay();
             Usabilla.SendEvent("xamarin");
 
+        }
+        // form button
+        partial void UIButton197_TouchUpInside(UIButton sender) => Usabilla.LoadFeedbackForm("[YOUR FORM ID HERE]", null);
+
+        partial void ResetButton_TouchUpInside(UIButton sender) => Usabilla.ResetCampaignData(null);
+        // event button
+        partial void UIButton199_TouchUpInside(UIButton sender)
+        {
+
+            string text = keyword.Text;
+            Usabilla.SendEvent(text);
         }
 
         private class CustomUsabillaDelegate : UsabillaDelegate
