@@ -24,10 +24,10 @@ namespace UsabillaDemoiOS
             
                 NSDictionary<NSString, NSObject> dict = new NSDictionary<NSString, NSObject>(new NSString("tesr"), NSObject.FromObject("xamarint"));
 
-                Usabilla.Initialize("[YOUR APP ID HERE]", null);
+                Usabilla.Initialize("[YOUR-APP-ID-HERE]", null);
                 Usabilla.Delegate = new CustomUsabillaDelegate() { ViewController = this };
                 Usabilla.CustomVariables = dict;
-                //Usabilla.ResetCampaignData(null);
+                ////Usabilla.ResetCampaignData(null);
             }
             catch (Exception ex)
             {
@@ -45,15 +45,16 @@ namespace UsabillaDemoiOS
             Usabilla.SendEvent("xamarin");
 
         }
-        // form button
-        partial void UIButton197_TouchUpInside(UIButton sender) => Usabilla.LoadFeedbackForm("[YOUR FORM ID HERE]", null);
+         //form button
+        partial void UIButton197_TouchUpInside(UIButton sender) => Usabilla.LoadFeedbackForm("[YOUR-FORM-ID-HERE]", null);
 
         partial void ResetButton_TouchUpInside(UIButton sender) => Usabilla.ResetCampaignData(null);
-        // event button
+         //event button
         partial void UIButton199_TouchUpInside(UIButton sender)
         {
 
             string text = keyword.Text;
+            _ = keyword.ResignFirstResponder();
             Usabilla.SendEvent(text);
         }
 
