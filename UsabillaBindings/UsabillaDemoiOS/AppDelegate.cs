@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
-
+using MonoTouch.Fabric;
+using MonoTouch.Fabric.Crashlytics;
 namespace UsabillaDemoiOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -18,10 +19,10 @@ namespace UsabillaDemoiOS
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            // Override point for customization after application launch.
+            string apikey = "[crashlytic app key]";
+            MonoTouch.Fabric.Crashlytics.Crashlytics.StartWithAPIKey(apikey);       
+            return true;  // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-
-            return true;
         }
 
         public override void OnResignActivation(UIApplication application)
