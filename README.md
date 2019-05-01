@@ -1,9 +1,9 @@
-# Usabilla for React Native
+# Usabilla for Xamarin.
 
 Usabilla for Apps allows you to collect feedback from your users with great ease and flexibility.
 This Xamarin bridge to the Native Usabilla SDK allows you to load passive feedback forms and submit results from a Xamarin app.
 
-The bridge is created using Xamarin native and does not yet have a unified API for both Android and iOS
+The bridge is created using Xamarin native and does not yet have a unified API for both Android and iOS.
 
 ## Installation
 
@@ -29,7 +29,7 @@ Usabilla.Instance.LoadFeedbackForm("[YOUR FORM ID HERE]", callback);
 ```
 `callback` is a callback used to communicate when the loading ends.
 
-The Xamarin Bridge for Android is similar to the native Android SDK. The only difference is with the bridge follows C# conventions.
+The Xamarin Bridge for Android is similar to the native Android SDK. The only difference is that the bridge follows C# conventions.
 
 You can refer to the [native Android SDK](https://github.com/usabilla/usabilla-u4a-android-sdk), for in-depth explanation of the SDK.
 
@@ -65,5 +65,23 @@ private class CustomUsabillaDelegate : UsabillaDelegate {
     }
 }
 ```
+And then load the form to present 
+
+`Usabilla.LoadFeedbackForm("[Your FORM ID here]", null);`
+
 
 You can refer to the [native iOS SDK](https://github.com/usabilla/usabilla-u4a-ios-swift-sdk), for in-depth explanation of the SDK.
+
+### IMPORTANT:
+
+When you build an app that depends on a Swift library (Usabilla library is build with swift) you need to include everything that library depends on in your app, including runtime and standard libraries.
+
+You can include all dependencies manually, or you can use this library to achieve the same result:  `https://github.com/Flash3001/Xamarin.Swift`
+
+If you app crashes during startup, with a message like: 
+
+`Dyld Error Message:`
+`Library not loaded: @rpath/libswiftCore.dylib`
+`Referenced from: /Users/asv/Library/Developer/CoreSimulator/Devices/AC440891-C819–4050–8CAB-CE15AB4B3830/data/Containers/Bundle/Application/27D2EC87–5042–4FA7–9B80-A24A8971FB48/SampleIOSApp/Usabilla.framework/usabilla`
+
+it's most likely because you haven't included all dependencies. 
