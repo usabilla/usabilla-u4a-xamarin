@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usabilla_iOS", "Usabilla_iO
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usabilla_Android", "Usabilla_Android", "{A8F3ED82-3EA2-4E6F-B6EB-AEE99BBFECDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinBindingLibrary", "XamarinBindingLibrary\XamarinBindingLibrary.csproj", "{14272049-301D-4FAC-AA73-1D7B53957AFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.iOS", "Xamarin.Usabilla.iOS\Xamarin.Usabilla.iOS.csproj", "{14272049-301D-4FAC-AA73-1D7B53957AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsabillaDemoiOS", "XamarinBindingLibrary\UsabillaDemoiOS\UsabillaDemoiOS.csproj", "{9916F552-DF7C-44A8-90CB-F080258FE0A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsabillaDemoiOS", "UsabillaDemoiOS\UsabillaDemoiOS.csproj", "{9916F552-DF7C-44A8-90CB-F080258FE0A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
