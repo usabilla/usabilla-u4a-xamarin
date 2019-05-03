@@ -7,7 +7,7 @@ The bridge is created using Xamarin native and does not yet have a unified API f
 
 ## Installation
 
-Installation is done via NuGet: <NuGet Link>
+Installation is done via NuGet: <https://www.nuget.org/packages/Usabilla.Xamarin>
 
 ## Usage
 
