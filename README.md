@@ -39,7 +39,7 @@ To use the Xamarin bridge for iOS, you must include:
 using UsabillaIos;
 ```
 
-The initialization of the library is done with 
+The initialization of the library is done with
 ```C#
 Usabilla.Initialize("[YOUR APP ID HERE]", null);
 ```
@@ -57,31 +57,28 @@ private class CustomUsabillaDelegate : UsabillaDelegate {
 	public ViewController ViewController { get; set; }
 
     public override void FormDidLoad(UINavigationController form) {
-       // form did load, present it
-        ViewController.PresentViewController(form, true, null);
+      // form did load, present it
+      ViewController.PresentViewController(form, true, null);
     }
+    
     public override void FormDidFailLoading(UBError form) {
-		// some action here
+      // some action here
     }
 }
 ```
-And then load the form to present 
-
-`Usabilla.LoadFeedbackForm("[Your FORM ID here]", null);`
-
+And then load the form to present
+```C#
+Usabilla.LoadFeedbackForm("[YOUR FORM ID HERE]", null);
+```
 
 You can refer to the [native iOS SDK](https://github.com/usabilla/usabilla-u4a-ios-swift-sdk), for in-depth explanation of the SDK.
 
 ### IMPORTANT:
 
-When you build an app that depends on a Swift library (Usabilla library is build with swift) you need to include everything that the library depends on in your app, including runtime and standard libraries.
+When you build an app that depends on the Usabilla SDK, that is build using Swift, you need to include everything that the library depends on in your app, including runtime and standard libraries. You can include all dependencies manually or you can use [Flash3001/Xamarin.Swift](https://github.com/Flash3001/Xamarin.Swift) to achieve the same result.
 
-You can include all dependencies manually, or you can use this library to achieve the same result:  `https://github.com/Flash3001/Xamarin.Swift`
+If not all dependencies are included your app will crash at startup with a message like:
 
-If you app crashes during startup, with a message like: 
-
-`Dyld Error Message:`
-`Library not loaded: @rpath/libswiftCore.dylib`
-`Referenced from: /Users/asv/Library/Developer/CoreSimulator/Devices/AC440891-C819–4050–8CAB-CE15AB4B3830/data/Containers/Bundle/Application/27D2EC87–5042–4FA7–9B80-A24A8971FB48/SampleIOSApp/Usabilla.framework/usabilla`
-
-it's most likely because not all dependencies are included.
+    Dyld Error Message:
+    Library not loaded: @rpath/libswiftCore.dylib
+    Referenced from: /Users/asv/Library/Developer/CoreSimulator/Devices/AC440891-C819–4050–8CAB-CE15AB4B3830/data/Containers/Bundle/Application/27D2EC87–5042–4FA7–9B80-A24A8971FB48/SampleIOSApp/Usabilla.framework/usabilla
