@@ -76,7 +76,7 @@ You can refer to the [native iOS SDK](https://github.com/usabilla/usabilla-u4a-i
 
 When you build an app that depends on a Swift library (Usabilla library is build with swift) you need to include everything that library depends in your app, including runtime and standard libraries.
 
-You can include this library to help you doing this:  `https://github.com/Flash3001/Xamarin.Swift`
+You can include all dependencies manually, or you can use this library to achieve the same result:  `https://github.com/Flash3001/Xamarin.Swift`
 
 If you app crashes during startup, with a message like: 
 
