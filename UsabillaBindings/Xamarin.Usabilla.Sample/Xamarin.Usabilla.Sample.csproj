@@ -49,6 +49,12 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.3.6.0.344457\lib\netstandard1.0\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Usabilla">
+      <HintPath>..\packages\Usabilla.Xamarin.1.0.3\lib\monoandroid90+xamarinios10\Xamarin.Usabilla.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Usabilla.PCL">
+      <HintPath>..\packages\Usabilla.Xamarin.1.0.3\lib\monoandroid90+xamarinios10\Xamarin.Usabilla.PCL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

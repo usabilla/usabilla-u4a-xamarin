@@ -10,6 +10,7 @@ namespace Xamarin.Usabilla.Sample
         public MainPage()
         {
             InitializeComponent();
+            UsabillaXamarin.Instance.initialize(null, null);
         }
     }
 }
