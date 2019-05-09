@@ -63,16 +63,16 @@
     <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\Framework_WithUpdates\Usabilla.framework">
-      <Kind>Framework</Kind>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla.PCL.csproj">
       <Project>{42DE57C7-30A6-4A47-B8F0-A756F9D027F3}</Project>
       <Name>Xamarin.Usabilla.PCL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="Usabilla.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets" Condition="Exists('..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets')" />
