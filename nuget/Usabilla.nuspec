@@ -7,9 +7,9 @@
     <authors>Usabilla</authors>
     <owners>Usabilla</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <licenseUrl>https://raw.githubusercontent.com/usabilla/usabilla-u4a-xamarin/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/usabilla/usabilla-u4a-xamarin/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/usabilla/usabilla-u4a-xamarin/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/usabilla/usabilla-u4a-xamarin/images/icon.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/usabilla/usabilla-u4a-xamarin/master/nuget/images/icon.png</iconUrl>
     <description>Usabilla Bridge for Xamarin</description>
     <summary>Usabilla for Apps allows you to collect feedback from your users with great ease and flexibility. This Xamarin bridge to the Native Usabilla SDK allows you to load passive feedback forms and submit results from a Xamarin app.</summary>
     <releaseNotes></releaseNotes>
