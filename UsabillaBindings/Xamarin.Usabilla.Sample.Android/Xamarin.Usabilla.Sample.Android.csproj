@@ -61,7 +61,7 @@
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
     <PackageReference Include="Usabilla.Xamarin">
-      <Version>1.0.3</Version>
+      <Version>1.0.6</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
