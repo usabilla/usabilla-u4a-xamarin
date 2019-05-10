@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28531.58
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.Android", "Xamarin.Usabilla.Android\Xamarin.Usabilla.Android.csproj", "{2174A629-407A-4C77-A88D-A7F3C71E1064}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.Android.Bindings", "Xamarin.Usabilla.Android\Xamarin.Usabilla.Android.Bindings.csproj", "{2174A629-407A-4C77-A88D-A7F3C71E1064}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usabilla_iOS", "Usabilla_iOS", "{E91C4E60-FE85-49C4-BC7D-91D70432B894}"
 EndProject
