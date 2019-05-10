@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.Sample.iOS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.Sample", "Xamarin.Usabilla.Sample\Xamarin.Usabilla.Sample.csproj", "{AC100708-81FC-44FC-A86C-EA2DA1422C82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Usabilla.Android", "Xamarin.Usabilla.Android\Xamarin.Usabilla.Android\Xamarin.Usabilla.Android.csproj", "{0FC73D29-12A1-4633-9FD4-546B3632BF5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -118,6 +120,18 @@ Global
 		{AC100708-81FC-44FC-A86C-EA2DA1422C82}.Release|iPhone.Build.0 = Release|Any CPU
 		{AC100708-81FC-44FC-A86C-EA2DA1422C82}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{AC100708-81FC-44FC-A86C-EA2DA1422C82}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Release|iPhone.Build.0 = Release|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +144,7 @@ Global
 		{7CC99B38-F36C-41C5-9DB2-75CCE8B14EB0} = {F7194FFD-5FAC-473D-9DAE-E68397F07732}
 		{505ACA87-B72A-4CF2-907F-E46EAF6A1C47} = {F7194FFD-5FAC-473D-9DAE-E68397F07732}
 		{AC100708-81FC-44FC-A86C-EA2DA1422C82} = {F7194FFD-5FAC-473D-9DAE-E68397F07732}
+		{0FC73D29-12A1-4633-9FD4-546B3632BF5A} = {A8F3ED82-3EA2-4E6F-B6EB-AEE99BBFECDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2C00BDEA-A81E-4B17-B057-F8F9A9F45377}
