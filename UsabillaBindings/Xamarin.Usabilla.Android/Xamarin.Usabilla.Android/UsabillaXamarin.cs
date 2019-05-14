@@ -77,7 +77,7 @@ namespace Xamarin.Usabilla
 
         public bool Dismiss()
         {
-            throw new NotImplementedException();
+            return UsabillaAndroid.Usabilla.Instance.Dismiss(Application.Context);
         }
 
         public void SetDataMasking(IList<string> masks, char maskCharacter)
