@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Xamarin.Usabilla;
 namespace Xamarin.Usabilla.Sample
 {
     public partial class App : Application
@@ -9,8 +9,9 @@ namespace Xamarin.Usabilla.Sample
         public App()
         {
             InitializeComponent();
-
+            UsabillaXamarin.Instance.Initialize(null);
             MainPage = new MainPage();
+        
         }
 
         protected override void OnStart()

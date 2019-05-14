@@ -10,7 +10,7 @@ namespace Xamarin.Usabilla
         static UsabillaXamarin() { }
         private UsabillaXamarin() { }
 
-        public void initialize(string appId, Func<object> callback)
+        public void Initialize(string appId)
         {
             throw new NotImplementedException("Dummy Implementation for Bait And Switch Trick and should not be called");
         }

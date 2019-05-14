@@ -127,14 +127,15 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
-    <PackageReference Include="Usabilla.Xamarin">
-      <Version>1.0.6</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Usabilla.Sample\Xamarin.Usabilla.Sample.csproj">
       <Project>{AC100708-81FC-44FC-A86C-EA2DA1422C82}</Project>
       <Name>Xamarin.Usabilla.Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Usabilla.iOS\Xamarin.Usabilla.iOS.csproj">
+      <Project>{14272049-301D-4FAC-AA73-1D7B53957AFA}</Project>
+      <Name>Xamarin.Usabilla.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
