@@ -60,6 +60,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App.xaml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla\Xamarin.Usabilla.csproj">
+      <Project>{13EC0001-7F7B-415B-B73D-5C8051E6A78F}</Project>
+      <Name>Xamarin.Usabilla</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.3.6.0.344457\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.6.0.344457\build\Xamarin.Forms.targets')" />
 </Project>
