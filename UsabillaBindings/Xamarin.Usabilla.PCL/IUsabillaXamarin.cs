@@ -18,7 +18,9 @@ namespace Xamarin.Usabilla.PCL
 
         IDictionary<string, string> CustomVariables { get; set; }
 
-        void Initialize(String appId);
+        IList<string> DefaultMasks { get; }
+
+        void Initialize(string appId);
 
         void SendEvent(string anEvent);
 
@@ -31,7 +33,5 @@ namespace Xamarin.Usabilla.PCL
         bool Dismiss();
 
         void SetDataMasking(IList<string> masks, char maskCharacter);
-
-        IList<string> DefaultMasks { get; }
     }
 }
