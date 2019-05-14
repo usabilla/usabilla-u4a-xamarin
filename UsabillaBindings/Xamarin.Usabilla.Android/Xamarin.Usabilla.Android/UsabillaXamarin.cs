@@ -14,6 +14,8 @@ namespace Xamarin.Usabilla
 
         public IList<string> DefaultMasks => throw new NotImplementedException();
 
+        internal Action<XUFormLoadResult> FormCallback { get; set; }
+
         static UsabillaXamarin() { }
         private UsabillaXamarin() { }
 
@@ -38,6 +40,8 @@ namespace Xamarin.Usabilla
         public void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result)
         {
             Log.Debug("UBInfo", "show " + formId);
+            PassiveFeedbackActivity.start(Application.Context, formId);
+            FormCallback = result;
         }
 
         public void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result)
