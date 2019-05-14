@@ -9,7 +9,13 @@ namespace Xamarin.Usabilla
     public class UsabillaXamarin : IUsabillaXamarin
     {
         public static UsabillaXamarin Instance { get; } = new UsabillaXamarin();
-        public bool DebugEnabled { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public bool DebugEnabled
+        {
+            get => UsabillaAndroid.Usabilla.Instance.DebugEnabled;
+            set => UsabillaAndroid.Usabilla.Instance.DebugEnabled = value;
+        }
+
         public IDictionary<string, string> CustomVariables { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public IList<string> DefaultMasks => throw new NotImplementedException();
