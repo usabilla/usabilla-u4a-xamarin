@@ -16,7 +16,27 @@ namespace Xamarin.Usabilla
             set => UsabillaAndroid.Usabilla.Instance.DebugEnabled = value;
         }
 
-        public IDictionary<string, string> CustomVariables { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IDictionary<string, string> CustomVariables
+        {
+            get
+            {
+                Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                foreach (KeyValuePair<string, Java.Lang.Object> entry in UsabillaAndroid.Usabilla.Instance.CustomVariables)
+                {
+                    dictionary.Add(entry.Key, entry.Value.ToString());
+                }
+                return dictionary;
+            }
+            set
+            {
+                Dictionary<string, Java.Lang.Object> dictionary = new Dictionary<string, Java.Lang.Object>();
+                foreach (KeyValuePair<string, string> entry in value)
+                {
+                    dictionary.Add(entry.Key, entry.Value);
+                }
+                UsabillaAndroid.Usabilla.Instance.CustomVariables = dictionary;
+            }
+        }
 
         public IList<string> DefaultMasks => throw new NotImplementedException();
 
