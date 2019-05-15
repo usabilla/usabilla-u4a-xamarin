@@ -6,10 +6,12 @@ namespace Xamarin.Usabilla.Sample
 {
     public partial class App : Application
     {
+        private const string AppId = "7fb7ffdd-c2fa-49b9-bee5-218c12466df7";
+
         public App()
         {
             InitializeComponent();
-            UsabillaXamarin.Instance.Initialize(null);
+            UsabillaXamarin.Instance.Initialize(AppId);
             MainPage = new MainPage();
         
         }
