@@ -52,6 +52,9 @@
     <Reference Include="Xamarin.Usabilla">
       <HintPath>..\packages\Usabilla.Xamarin.1.0.6\lib\monoandroid90+xamarinios10\Xamarin.Usabilla.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\9.2.3-0\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -64,6 +67,10 @@
     <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla\Xamarin.Usabilla.csproj">
       <Project>{13EC0001-7F7B-415B-B73D-5C8051E6A78F}</Project>
       <Name>Xamarin.Usabilla</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla.PCL.csproj">
+      <Project>{42DE57C7-30A6-4A47-B8F0-A756F9D027F3}</Project>
+      <Name>Xamarin.Usabilla.PCL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

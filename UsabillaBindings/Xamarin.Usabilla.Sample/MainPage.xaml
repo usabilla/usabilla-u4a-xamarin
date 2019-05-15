@@ -22,5 +22,16 @@
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="OnResetClicked" />
+
+        <Button Text="Show Form"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnLoadFormClicked" />
+
+        <Button Text="Add Custom variables"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="AddCustomVariableClicked" />
     </StackLayout>
+
 </ContentPage>
