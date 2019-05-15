@@ -17,11 +17,12 @@ namespace Xamarin.Usabilla.Sample
 
         private void formHandler(XUFormLoadResult result)
         {
-            if (result == XUFormLoadResult.FormDidSucceedLoading) {
-                var a = 1;
-            } else {
-                var b = 1;
-            }
+<<<<<<< HEAD
+            System.Diagnostics.Debug.WriteLine("XUFormLoadResult : {0}", result);
+=======
+            System.Diagnostics.Debug.WriteLine("Result of showForm : {0}", result);
+            
+>>>>>>> 1098e0a... Add ShowFormWithScreenshot method
         }
 
         void OnSendEventClicked(object sender, EventArgs args)
@@ -46,7 +47,7 @@ namespace Xamarin.Usabilla.Sample
         void OnLoadFormClicked(object sender, EventArgs e) 
         {
             Action<XUFormLoadResult> handler = formHandler;
-            UsabillaXamarin.Instance.ShowFeedbackForm("5be4154a4cc4f42e2b1741a4", handler);
+            UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshoot("5c41a3b7c286b957534bd399", handler);
         }
         void AddCustomVariableClicked(object sender, EventArgs e)
         {
@@ -55,7 +56,6 @@ namespace Xamarin.Usabilla.Sample
                 { "xamarin", "ios" },
                 { "ios", "working" }
             };
-            var current = UsabillaXamarin.Instance.DefaultMasks;
             UsabillaXamarin.Instance.CustomVariables = keyValuePairs;
 
         }

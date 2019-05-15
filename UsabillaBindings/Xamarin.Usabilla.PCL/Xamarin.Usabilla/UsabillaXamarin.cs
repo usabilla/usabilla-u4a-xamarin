@@ -11,6 +11,17 @@ namespace Xamarin.Usabilla
         static UsabillaXamarin() { }
         private UsabillaXamarin() { }
 
+        public bool DebugEnabled {
+            get
+            {
+                throw new NotImplementedException("Dummy Implementation for DebugEnabled - get; should not be called");
+            }
+
+            set
+            {
+                throw new NotImplementedException("Dummy Implementation for DebugEnabled - set; should not be called");
+            }
+        }
 
         public IDictionary<string, string> CustomVariables
         {
@@ -41,6 +52,10 @@ namespace Xamarin.Usabilla
         {
             throw new NotImplementedException("Dummy Implementation for ShowFeedbackForm and should not be called");
         }
+        public void ShowFeedbackFormWithScreenshoot(string formId, Action<XUFormLoadResult> result)
+        {
+            throw new NotImplementedException("Dummy Implementation for ShowFeedbackFormWithScreenshoot and should not be called");
+        }
         public bool Dismiss()
         {
             throw new NotImplementedException("Dummy Implementation for Dismiss and should not be called");
@@ -50,6 +65,7 @@ namespace Xamarin.Usabilla
         {
             throw new NotImplementedException("Dummy Implementation for SetDataMasking and should not be called");
         }
+
         public IList<string> DefaultMasks {
             get 
             {

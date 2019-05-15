@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public enum XUFormLoadResult
+namespace Xamarin.Usabilla
 {
-    FormDidSucceedLoading,
-    FormDidFailLoading
+    public enum XUFormLoadResult
+    {
+        FormDidSucceedLoading,
+        FormDidFailLoading
+    }
 }
 
 namespace Xamarin.Usabilla.PCL
 {
     public interface IUsabillaXamarin
     {
+        bool DebugEnabled { get; set; }
+
         IDictionary<string, string> CustomVariables { get; set; }
 
         void Initialize(String appId);
@@ -20,6 +25,8 @@ namespace Xamarin.Usabilla.PCL
         void Reset();
 
         void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result);
+
+        void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result);
 
         bool Dismiss();
 

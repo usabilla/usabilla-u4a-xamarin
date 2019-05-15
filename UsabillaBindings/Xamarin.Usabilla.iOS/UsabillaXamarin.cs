@@ -40,7 +40,15 @@ namespace Xamarin.Usabilla
             UsabillaIos.Usabilla.LoadFeedbackForm(formId, null);
 
         }
+        public void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result)
+        {
+            aDelegate.Result = result;
+            var window = UIApplication.SharedApplication.KeyWindow;
+            var vc = window.RootViewController.View;
+            UIImage image = UsabillaIos.Usabilla.TakeScreenshot(vc);
+            UsabillaIos.Usabilla.LoadFeedbackForm(formId, image);
 
+        }
         public IDictionary<string, string> CustomVariables
         {
             get
@@ -94,6 +102,19 @@ namespace Xamarin.Usabilla
                 string[] masks = UsabillaIos.Usabilla.DefaultDataMasks;
                 List<string> list = new List<string>(masks);
                 return list;
+            }
+        }
+
+        public bool DebugEnabled
+        {
+            get
+            {
+                return UsabillaIos.Usabilla.DebugEnabled;
+            }
+
+            set
+            {
+                UsabillaIos.Usabilla.DebugEnabled = value;
             }
         }
         /*
