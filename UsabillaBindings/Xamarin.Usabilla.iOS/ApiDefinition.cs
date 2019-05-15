@@ -50,6 +50,9 @@ namespace UsabillaIos
 
         [Static, Export("takeScreenshot:")]
         [NullAllowed] UIImage TakeScreenshot(UIView view);
+
+        [Static, Export("dismiss")]
+        bool Dismiss();
     }
 
     [BaseType(typeof(NSObject))]

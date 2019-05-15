@@ -3,10 +3,15 @@
     <StackLayout>
         <!-- Place new controls here -->
         <Label Text="Welcome to Usabilla for Xamarin" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Button Text="Dismiss"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnDismissClicked" />
         <FlexLayout Direction="Row"
             AlignItems="Center"
             JustifyContent="Center">
-
+            
+            
             <Entry x:Name="EventName"
                    Placeholder="Event" 
                 PlaceholderColor="Gray" 

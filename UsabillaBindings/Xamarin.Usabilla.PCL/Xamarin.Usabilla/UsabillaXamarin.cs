@@ -23,9 +23,9 @@ namespace Xamarin.Usabilla
             {
                 throw new NotImplementedException("Dummy Implementation for IDictionary, set and should not be called");
             }
-    }
+        }
 
-    public void Initialize(string appId)
+        public void Initialize(string appId)
         {
             throw new NotImplementedException("Dummy Implementation for Initialize and should not be called");
         }
@@ -40,6 +40,10 @@ namespace Xamarin.Usabilla
         public void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result)
         {
             throw new NotImplementedException("Dummy Implementation for ShowFeedbackForm and should not be called");
+        }
+        public bool Dismiss()
+        {
+            throw new NotImplementedException("Dummy Implementation for Dismiss and should not be called");
         }
     }
 }
