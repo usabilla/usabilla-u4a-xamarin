@@ -2,6 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.Usabilla.Sample.MainPage">
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label Text="Welcome to Usabilla for Xamarin" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <FlexLayout Direction="Row"
+            AlignItems="Center"
+            JustifyContent="Center">
+
+            <Entry x:Name="EventName"
+                   Placeholder="Event" 
+                PlaceholderColor="Gray" 
+                WidthRequest="150"
+                TextChanged="Entry_Changed"
+                />
+            <Button Text="SendEvent"
+                Clicked="OnSendEventClicked" 
+                />
+            </FlexLayout>
+        
+        <Button Text="Reset"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnResetClicked" />
     </StackLayout>
 </ContentPage>
