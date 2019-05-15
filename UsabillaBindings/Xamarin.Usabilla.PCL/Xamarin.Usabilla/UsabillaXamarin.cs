@@ -45,5 +45,16 @@ namespace Xamarin.Usabilla
         {
             throw new NotImplementedException("Dummy Implementation for Dismiss and should not be called");
         }
+
+        public void SetDataMasking(IList<string> masks = null, char maskCharacter = 'X')
+        {
+            throw new NotImplementedException("Dummy Implementation for SetDataMasking and should not be called");
+        }
+        public IList<string> DefaultMasks {
+            get 
+            {
+                throw new NotImplementedException("Dummy Implementation for DefaultMasks and should not be called");
+            }
+         }
     }
 }

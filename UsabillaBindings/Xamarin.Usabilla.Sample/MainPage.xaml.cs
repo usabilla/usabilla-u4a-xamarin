@@ -51,11 +51,12 @@ namespace Xamarin.Usabilla.Sample
         void AddCustomVariableClicked(object sender, EventArgs e)
         {
             Dictionary<string,string> keyValuePairs  = new Dictionary<string, string>
-        {
-            { "xamarin", "ios" },
-            { "ios", "working" }
-        };
-           UsabillaXamarin.Instance.CustomVariables = keyValuePairs;
+            {
+                { "xamarin", "ios" },
+                { "ios", "working" }
+            };
+            var current = UsabillaXamarin.Instance.DefaultMasks;
+            UsabillaXamarin.Instance.CustomVariables = keyValuePairs;
 
         }
     }

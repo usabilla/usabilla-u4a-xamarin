@@ -75,6 +75,27 @@ namespace Xamarin.Usabilla
         {
             return UsabillaIos.Usabilla.Dismiss();
         }
+
+        public void SetDataMasking(IList<string> masks = null, char maskCharacter = 'X')
+        {
+            string[] stringArray = null;
+            if (masks != null)
+            {
+                stringArray = new string[masks.Count];
+                masks.CopyTo(stringArray, 0);
+            }
+            UsabillaIos.Usabilla.SetDataMasking(stringArray, maskCharacter);
+        }
+
+        public IList<string> DefaultMasks
+        {
+            get
+            {
+                string[] masks = UsabillaIos.Usabilla.DefaultDataMasks;
+                List<string> list = new List<string>(masks);
+                return list;
+            }
+        }
         /*
          * Private delegate implementation
          */

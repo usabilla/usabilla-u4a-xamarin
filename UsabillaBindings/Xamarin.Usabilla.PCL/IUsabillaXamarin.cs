@@ -22,5 +22,9 @@ namespace Xamarin.Usabilla.PCL
         void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result);
 
         bool Dismiss();
+
+        void SetDataMasking(IList<string> masks, char maskCharacter);
+
+        IList<string> DefaultMasks { get; }
     }
 }
