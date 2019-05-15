@@ -38,7 +38,7 @@ namespace Xamarin.Usabilla
             }
         }
 
-        public IList<string> DefaultMasks => throw new NotImplementedException();
+        public IList<string> DefaultMasks => UsabillaAndroid.UbConstants.DefaultDataMasks;
 
         internal Action<XUFormLoadResult> FormCallback { get; set; }
 
@@ -80,9 +80,10 @@ namespace Xamarin.Usabilla
             return UsabillaAndroid.Usabilla.Instance.Dismiss(Application.Context);
         }
 
-        public void SetDataMasking(IList<string> masks, char maskCharacter)
+        public void SetDataMasking(IList<string> masks = null, char maskCharacter = 'X')
         {
-            throw new NotImplementedException();
+            masks = masks ?? UsabillaAndroid.UbConstants.DefaultDataMasks;
+            UsabillaAndroid.Usabilla.Instance.SetDataMasking(masks, maskCharacter);
         }
     }
 }
