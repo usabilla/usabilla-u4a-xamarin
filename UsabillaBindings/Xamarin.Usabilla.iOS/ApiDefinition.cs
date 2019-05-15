@@ -53,6 +53,12 @@ namespace UsabillaIos
 
         [Static, Export("dismiss")]
         bool Dismiss();
+
+        [Static, Export("setDataMasking:masks:maskCharacter")]
+        void SetDataMasking([NullAllowed] string[] mask, [NullAllowed]char maskCharacter);
+
+        [Static, Export("defaultDataMasks")]
+        string[] DefaultDataMasks { get; }
     }
 
     [BaseType(typeof(NSObject))]
