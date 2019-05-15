@@ -20,5 +20,7 @@ namespace Xamarin.Usabilla.PCL
         void Reset();
 
         void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result);
+
+        bool Dismiss();
     }
 }

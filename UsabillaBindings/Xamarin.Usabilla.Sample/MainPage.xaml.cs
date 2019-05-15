@@ -30,6 +30,11 @@ namespace Xamarin.Usabilla.Sample
             UsabillaXamarin.Instance.SendEvent(eventText);
         }
 
+        void OnDismissClicked(object sender, EventArgs args)
+        {
+            UsabillaXamarin.Instance.Dismiss();
+        }
+
         void OnResetClicked(object sender, EventArgs args)
         {
             UsabillaXamarin.Instance.Reset();

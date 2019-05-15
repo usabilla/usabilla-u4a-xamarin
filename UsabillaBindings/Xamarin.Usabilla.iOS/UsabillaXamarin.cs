@@ -71,8 +71,10 @@ namespace Xamarin.Usabilla
             }
         }
 
-
-
+        public bool Dismiss()
+        {
+            return UsabillaIos.Usabilla.Dismiss();
+        }
         /*
          * Private delegate implementation
          */
