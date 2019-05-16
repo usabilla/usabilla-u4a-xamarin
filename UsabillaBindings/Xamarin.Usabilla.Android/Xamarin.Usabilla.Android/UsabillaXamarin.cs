@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.App;
+using Android.Support.V7.App;
 using Android.Util;
 using Xamarin.Usabilla.PCL;
 
@@ -9,6 +10,8 @@ namespace Xamarin.Usabilla
     public class UsabillaXamarin : IUsabillaXamarin
     {
         public static UsabillaXamarin Instance { get; } = new UsabillaXamarin();
+
+        public AppCompatActivity Activity { get; set; }
 
         public bool DebugEnabled
         {
@@ -49,6 +52,7 @@ namespace Xamarin.Usabilla
         {
             Log.Debug("UBInfo", "Initializing SDK");
             UsabillaAndroid.Usabilla.Instance.Initialize(Application.Context, appId);
+            UsabillaAndroid.Usabilla.Instance.UpdateFragmentManager(Activity.SupportFragmentManager);
         }
 
         public void SendEvent(string anEvent)
