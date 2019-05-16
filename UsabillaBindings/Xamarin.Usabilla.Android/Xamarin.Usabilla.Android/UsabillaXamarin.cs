@@ -70,13 +70,14 @@ namespace Xamarin.Usabilla
         public void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result)
         {
             Log.Debug("UBInfo", "show " + formId);
-            PassiveFeedbackActivity.start(Application.Context, formId);
+            PassiveFeedbackActivity.start(Application.Context, formId, false);
             FormCallback = result;
         }
 
         public void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result)
         {
-            throw new NotImplementedException();
+            PassiveFeedbackActivity.start(Application.Context, formId, true);
+            FormCallback = result;
         }
 
         public bool Dismiss()
