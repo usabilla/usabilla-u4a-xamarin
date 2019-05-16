@@ -4,6 +4,7 @@ using Android.OS;
 using V4 = Android.Support.V4;
 using Android.Support.V7.App;
 using Com.Usabilla.Sdk.Ubform.Sdk.Form;
+using Android.Graphics;
 
 namespace Xamarin.Usabilla
 {
@@ -12,6 +13,7 @@ namespace Xamarin.Usabilla
         IDialogInterfaceOnDismissListener
     {
         private const string EXTRA_FORMID = "extra_form_id";
+        private const string EXTRA_SCREENSHOT = "extra_screenshot";
         private const string FRAGMENT_TAG = "passive_feedback_activity";
         private readonly IntentFilter passiveFilter = new IntentFilter(UsabillaAndroid.UbConstants.IntentCloseForm);
         private PassiveFormCloseReceiver passiveReceiver;
@@ -31,11 +33,12 @@ namespace Xamarin.Usabilla
             }
         }
 
-        public static void start(Context context, string formId)
+        public static void start(Context context, string formId, bool withScreenshot)
         {
             Intent intent = new Intent(context, typeof(PassiveFeedbackActivity));
             intent.PutExtra(EXTRA_FORMID, formId);
-            intent.AddFlags(ActivityFlags.NewTask);
+            intent.PutExtra(EXTRA_SCREENSHOT, withScreenshot);
+            intent.AddFlags(ActivityFlags.SingleTop | ActivityFlags.NewTask);
             context.StartActivity(intent);
         }
 
@@ -46,6 +49,12 @@ namespace Xamarin.Usabilla
 
             passiveReceiver = new PassiveFormCloseReceiver(this);
 
+            if (Intent.GetBooleanExtra(EXTRA_SCREENSHOT, false))
+            {
+                Bitmap screenshot = UsabillaAndroid.Usabilla.Instance.TakeScreenshot(UsabillaXamarin.Instance.Activity);
+                UsabillaAndroid.Usabilla.Instance.LoadFeedbackForm(Intent.GetStringExtra(EXTRA_FORMID), screenshot, this);
+                return;
+            }
             UsabillaAndroid.Usabilla.Instance.LoadFeedbackForm(Intent.GetStringExtra(EXTRA_FORMID), this);
         }
 
@@ -64,7 +73,9 @@ namespace Xamarin.Usabilla
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            UsabillaXamarin.Instance.FormCallback = null;
+            if (IsFinishing) {
+                UsabillaXamarin.Instance.FormCallback = null;
+            }
         }
 
         public void FormLoadFail()
