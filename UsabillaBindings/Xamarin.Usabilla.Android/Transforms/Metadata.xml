@@ -25,6 +25,7 @@
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.field.presenter.common']/class[@name='FieldPresenter']" />
 
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.field.model']/class[@name='TextBoxModel']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.net.http']/class[@name='UsabillaInternalRequest']" />
 
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']" name="managedName">UsabillaAndroid</attr>
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']/interface[@name='UsabillaFormCallback']/method[@name='formLoadSuccess']/parameter[@name='p0']" name="managedName">parameter</attr>
