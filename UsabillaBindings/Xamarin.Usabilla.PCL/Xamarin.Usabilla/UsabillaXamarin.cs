@@ -11,7 +11,8 @@ namespace Xamarin.Usabilla
         static UsabillaXamarin() { }
         private UsabillaXamarin() { }
 
-        public bool DebugEnabled {
+        public bool DebugEnabled 
+        {
             get
             {
                 throw new NotImplementedException("Dummy Implementation for DebugEnabled - get; should not be called");
@@ -27,50 +28,50 @@ namespace Xamarin.Usabilla
         {
             get
             {
-                throw new NotImplementedException("Dummy Implementation for IDictionary, get and should not be called");
+                throw new NotImplementedException("Dummy Implementation for IDictionary - get; should not be called");
             }
 
             set
             {
-                throw new NotImplementedException("Dummy Implementation for IDictionary, set and should not be called");
+                throw new NotImplementedException("Dummy Implementation for IDictionary - set; should not be called");
+            }
+        }
+
+        public IList<string> DefaultMasks 
+        {
+            get 
+            {
+                throw new NotImplementedException("Dummy Implementation for DefaultMasks; should not be called");
             }
         }
 
         public void Initialize(string appId)
         {
-            throw new NotImplementedException("Dummy Implementation for Initialize and should not be called");
+            throw new NotImplementedException("Dummy Implementation for Initialize; should not be called");
         }
         public void SendEvent(string anEvent)
         {
-            throw new NotImplementedException("Dummy Implementation for SendEvent and should not be called");
+            throw new NotImplementedException("Dummy Implementation for SendEvent; should not be called");
         }
         public void Reset()
         {
-            throw new NotImplementedException("Dummy Implementation for Reset and should not be called");
+            throw new NotImplementedException("Dummy Implementation for Reset; should not be called");
         }
         public void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result)
         {
-            throw new NotImplementedException("Dummy Implementation for ShowFeedbackForm and should not be called");
+            throw new NotImplementedException("Dummy Implementation for ShowFeedbackForm; should not be called");
         }
-        public void ShowFeedbackFormWithScreenshoot(string formId, Action<XUFormLoadResult> result)
+        public void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result)
         {
-            throw new NotImplementedException("Dummy Implementation for ShowFeedbackFormWithScreenshoot and should not be called");
+            throw new NotImplementedException("Dummy Implementation for ShowFeedbackFormWithScreenshoot; should not be called");
         }
         public bool Dismiss()
         {
-            throw new NotImplementedException("Dummy Implementation for Dismiss and should not be called");
+            throw new NotImplementedException("Dummy Implementation for Dismiss; should not be called");
         }
-
         public void SetDataMasking(IList<string> masks = null, char maskCharacter = 'X')
         {
-            throw new NotImplementedException("Dummy Implementation for SetDataMasking and should not be called");
+            throw new NotImplementedException("Dummy Implementation for SetDataMasking; should not be called");
         }
-
-        public IList<string> DefaultMasks {
-            get 
-            {
-                throw new NotImplementedException("Dummy Implementation for DefaultMasks and should not be called");
-            }
-         }
     }
 }

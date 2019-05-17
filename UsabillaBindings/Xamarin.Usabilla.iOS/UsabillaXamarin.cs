@@ -20,7 +20,6 @@ namespace Xamarin.Usabilla
         {
             UsabillaIos.Usabilla.Initialize(appId, null);
             UsabillaIos.Usabilla.Delegate = aDelegate;
-            Console.WriteLine("Initializing SDK for iOS appId: {0}", appId);
         }
 
         public void SendEvent(string anEvent)
@@ -33,13 +32,12 @@ namespace Xamarin.Usabilla
             UsabillaIos.Usabilla.ResetCampaignData(null);
         }
 
-
         public void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result)
         {
             aDelegate.Result = result;
             UsabillaIos.Usabilla.LoadFeedbackForm(formId, null);
-
         }
+
         public void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result)
         {
             aDelegate.Result = result;
@@ -47,8 +45,8 @@ namespace Xamarin.Usabilla
             var vc = window.RootViewController.View;
             UIImage image = UsabillaIos.Usabilla.TakeScreenshot(vc);
             UsabillaIos.Usabilla.LoadFeedbackForm(formId, image);
-
         }
+
         public IDictionary<string, string> CustomVariables
         {
             get
@@ -60,6 +58,7 @@ namespace Xamarin.Usabilla
                 }
                 return dictionary;
             }
+
             set
             {
                 NSMutableDictionary<NSString, NSObject> dictionary = new NSMutableDictionary<NSString, NSObject>();
@@ -75,7 +74,6 @@ namespace Xamarin.Usabilla
                 {
                     UsabillaIos.Usabilla.CustomVariables = aDictionary;
                 }
-
             }
         }
 
@@ -117,10 +115,10 @@ namespace Xamarin.Usabilla
                 UsabillaIos.Usabilla.DebugEnabled = value;
             }
         }
+
         /*
          * Private delegate implementation
          */
-
         private class CustomUsabillaDelegate : UsabillaIos.UsabillaDelegate
         {
             private Action<XUFormLoadResult> result;
@@ -163,12 +161,8 @@ namespace Xamarin.Usabilla
                     result.Invoke(XUFormLoadResult.FormDidSucceedLoading);
                     return;
                 }
-
-                result.Invoke(XUFormLoadResult.FormDidFailLoading);
-                            
+                result.Invoke(XUFormLoadResult.FormDidFailLoading);            
             }
-
         }
-
     }
 }

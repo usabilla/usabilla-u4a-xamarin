@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Java.Util;
 using Xamarin.Forms;
 
 namespace Xamarin.Usabilla.Sample
@@ -17,12 +16,7 @@ namespace Xamarin.Usabilla.Sample
 
         private void formHandler(XUFormLoadResult result)
         {
-<<<<<<< HEAD
-            System.Diagnostics.Debug.WriteLine("XUFormLoadResult : {0}", result);
-=======
             System.Diagnostics.Debug.WriteLine("Result of showForm : {0}", result);
-            
->>>>>>> 1098e0a... Add ShowFormWithScreenshot method
         }
 
         void OnSendEventClicked(object sender, EventArgs args)
@@ -47,7 +41,7 @@ namespace Xamarin.Usabilla.Sample
         void OnLoadFormClicked(object sender, EventArgs e) 
         {
             Action<XUFormLoadResult> handler = formHandler;
-            UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshoot("5c41a3b7c286b957534bd399", handler);
+            UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshot("[YOU FORM ID HERE]", handler);
         }
         void AddCustomVariableClicked(object sender, EventArgs e)
         {
