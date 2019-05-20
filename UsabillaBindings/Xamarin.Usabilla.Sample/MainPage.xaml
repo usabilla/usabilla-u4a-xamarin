@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.Usabilla.Sample.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Usabilla for Xamarin" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        <Button Text="Dismiss"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
-                Clicked="OnDismissClicked" />
-        <FlexLayout Direction="Row"
-            AlignItems="Center"
-            JustifyContent="Center">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Xamarin.Usabilla.Sample.MainPage"
+    BackgroundColor="White">
+
+    <StackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="FillAndExpand"
+        Margin="32"
+        Spacing="16">
+
+        <Image x:Name="UbImage"/>
+
+        <Button
+            Style="{StaticResource buttonStyle}"
+            Text="Show Form"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="OnLoadFormClicked" />
+
+        <StackLayout Orientation="Horizontal">
             
-            
-            <Entry x:Name="EventName"
-                   Placeholder="Event" 
+            <Entry
+                x:Name="EventName"
+                Placeholder="Event"
                 PlaceholderColor="Gray" 
-                WidthRequest="150"
                 TextChanged="Entry_Changed"
-                />
-            <Button Text="SendEvent"
-                Clicked="OnSendEventClicked" 
-                />
-            </FlexLayout>
-        
-        <Button Text="Reset"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
-                Clicked="OnResetClicked" />
+                HorizontalOptions="FillAndExpand"/>
 
-        <Button Text="Show Form"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
-                Clicked="OnLoadFormClicked" />
+            <Button
+                Style="{StaticResource buttonStyle}"
+                Text="Send Event"
+                Clicked="OnSendEventClicked"
+                HorizontalOptions="FillAndExpand"/>
 
-        <Button Text="Add Custom variables"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
-                Clicked="AddCustomVariableClicked" />
+        </StackLayout>
+
+        <Button
+            Style="{StaticResource buttonStyle}"
+            Text="Reset"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Clicked="OnResetClicked" />
+
     </StackLayout>
-
 </ContentPage>
