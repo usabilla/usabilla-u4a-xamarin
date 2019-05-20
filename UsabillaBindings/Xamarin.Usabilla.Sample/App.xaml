@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.Usabilla.Sample.App">
     <Application.Resources>
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#00A5C9" />
+            <Setter Property="BorderRadius" Value="5" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
     </Application.Resources>
 </Application>
