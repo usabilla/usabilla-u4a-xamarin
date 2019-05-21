@@ -11,7 +11,45 @@ Installation is done via NuGet: <https://www.nuget.org/packages/Usabilla.Xamarin
 
 ## Usage
 
+### Xamarin.Forms
+The package uses the [Bait and Switch PCL Trick](https://log.paulbetts.org/the-bait-and-switch-pcl-trick/). You need to add the package to the shared, Android and iOS projects.
+
+To use the Xamarin bridge for Xamarin.Forms, you must include:
+```C#
+using Xamarin.Usabilla;
+```
+
+The initialization of the library is done with:
+```C#
+UsabillaXamarin.Instance.Initialize("[YOUR APP ID HERE]");
+```
+
+To present the form:
+```C#
+UsabillaXamarin.Instance.ShowFeedbackForm("[YOUR FORM ID HERE]", (XUFormLoadResult) => {
+  // XUFormLoadResult can return XUFormLoadResult.FormDidSucceedLoading or XUFormLoadResult.FormDidFailLoading
+  // to indicate if the form is successfully shown.
+});
+```
+
+To send an event:
+```C#
+UsabillaXamarin.Instance.SendEvent("[YOUR EVENT NAME HERE]");
+```
+
+#### Additional Setup for Android
+You need to set:
+```C#
+UsabillaXamarin.Instance.Activity = /*Activity instance where your Xamarin.Forms is initialized*/;
+```
+This is for the SDK to have a reference on the `Activity Context` which is used to get the `SupportFragmentManager` and getting a screenshot of the current `Xamarin.Forms` screen.
+
 ### Android
+The SDK uses HTTP legacy so you must include this line in your `AndroidManifest` inside the `<application>` tags:
+```xml
+<uses-library android:name="org.apache.http.legacy" android:required="false" />
+```
+
 To use the Xamarin bridge for Android, you must include:
 ```C#
 using UsabillaAndroid;
