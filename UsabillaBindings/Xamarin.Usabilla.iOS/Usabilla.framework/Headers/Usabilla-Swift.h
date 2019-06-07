@@ -222,6 +222,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<NSStri
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) UIInterfaceOrientationMask orientation;)
 + (UIInterfaceOrientationMask)orientation SWIFT_WARN_UNUSED_RESULT;
 + (void)setOrientation:(UIInterfaceOrientationMask)newValue;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull sdkVersion;)
++ (NSString * _Nonnull)sdkVersion SWIFT_WARN_UNUSED_RESULT;
++ (void)setSdkVersion:(NSString * _Nonnull)newValue;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull localizedStringFile;)
 + (NSString * _Nonnull)localizedStringFile SWIFT_WARN_UNUSED_RESULT;
 + (void)setLocalizedStringFile:(NSString * _Nonnull)newValue;
@@ -521,6 +524,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<NSStri
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) UIInterfaceOrientationMask orientation;)
 + (UIInterfaceOrientationMask)orientation SWIFT_WARN_UNUSED_RESULT;
 + (void)setOrientation:(UIInterfaceOrientationMask)newValue;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull sdkVersion;)
++ (NSString * _Nonnull)sdkVersion SWIFT_WARN_UNUSED_RESULT;
++ (void)setSdkVersion:(NSString * _Nonnull)newValue;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull localizedStringFile;)
 + (NSString * _Nonnull)localizedStringFile SWIFT_WARN_UNUSED_RESULT;
 + (void)setLocalizedStringFile:(NSString * _Nonnull)newValue;
