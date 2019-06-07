@@ -34,5 +34,7 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
 </dict>
 </plist>
