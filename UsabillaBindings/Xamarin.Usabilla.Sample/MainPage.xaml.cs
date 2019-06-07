@@ -39,7 +39,7 @@ namespace Xamarin.Usabilla.Sample
         void OnLoadFormClicked(object sender, EventArgs e) 
         {
             Action<XUFormLoadResult> handler = formHandler;
-            UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshot("[YOU FORM ID HERE]", handler);
+            UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshot("[YOUR FORM ID HERE]", handler);
         }
     }
 }
