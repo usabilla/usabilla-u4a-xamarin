@@ -26,6 +26,12 @@
 
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.sdk.field.model']/class[@name='TextBoxModel']" />
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.net.http']/class[@name='UsabillaInternalRequest']" />
+    
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.utils.ext']/class[@name='ExtensionBitmapKt']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.screenshot.camera']/class[@name='UbSize']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.screenshot.camera']/class[@name='UbAspectRatio']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.screenshot.camera']/class[@name='UbCameraPresenter']" />
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.screenshot.annotation']/class[@name='UbAnnotationPresenter']" />
 
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']" name="managedName">UsabillaAndroid</attr>
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']/interface[@name='UsabillaFormCallback']/method[@name='formLoadSuccess']/parameter[@name='p0']" name="managedName">parameter</attr>
