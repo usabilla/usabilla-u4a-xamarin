@@ -48,6 +48,7 @@
         <dependency id="Xamarin.Android.Support.CustomView" version="28.0.0.1" />
         <dependency id="Xamarin.Android.Support.DocumentFile" version="28.0.0.1" />
         <dependency id="Xamarin.Android.Support.DrawerLayout" version="28.0.0.1" />
+        <dependency id="Xamarin.Android.Support.Exif" version="28.0.0.1" />
         <dependency id="Xamarin.Android.Support.Fragment" version="28.0.0.1" />
         <dependency id="Xamarin.Android.Support.Interpolator" version="28.0.0.1" />
         <dependency id="Xamarin.Android.Support.Loader" version="28.0.0.1" />
