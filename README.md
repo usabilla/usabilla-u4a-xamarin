@@ -72,6 +72,9 @@ The Xamarin Bridge for Android is similar to the native Android SDK. The only di
 You can refer to the [native Android SDK](https://github.com/usabilla/usabilla-u4a-android-sdk), for in-depth explanation of the SDK.
 
 ### iOS
+This release uses the Usabilla SDK v6.4.0.
+
+
 To use the Xamarin bridge for iOS, you must include:
 ```C#
 using UsabillaIos;
@@ -108,6 +111,17 @@ And then load the form to present
 ```C#
 Usabilla.LoadFeedbackForm("[YOUR FORM ID HERE]", null);
 ```
+
+Make sure to add:
+```
+Privacy - Camera Usage Description  
+```
+and
+```
+Privacy - Photo Library Usage Description
+```
+with a meaning full explanation to the end-user.
+
 
 You can refer to the [native iOS SDK](https://github.com/usabilla/usabilla-u4a-ios-swift-sdk), for in-depth explanation of the SDK.
 
