@@ -42,7 +42,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Xamarin.Kotlin.StdLib">
-      <HintPath>..\packages\Xamarin.Kotlin.StdLib.1.3.21\lib\MonoAndroid\Xamarin.Kotlin.StdLib.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Kotlin.StdLib.1.3.31\lib\MonoAndroid\Xamarin.Kotlin.StdLib.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Kotlin.StdLib.Jre7">
       <HintPath>..\packages\Xamarin.Kotlin.StdLib.Jre7.1.1.4.3\lib\MonoAndroid\Xamarin.Kotlin.StdLib.Jre7.dll</HintPath>
