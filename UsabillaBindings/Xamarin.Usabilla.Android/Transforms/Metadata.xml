@@ -33,6 +33,8 @@
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.screenshot.camera']/class[@name='UbCameraPresenter']" />
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.screenshot.annotation']/class[@name='UbAnnotationPresenter']" />
 
+    <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.di']/class[@name='Module']" />
+
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']" name="managedName">UsabillaAndroid</attr>
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']/interface[@name='UsabillaFormCallback']/method[@name='formLoadSuccess']/parameter[@name='p0']" name="managedName">parameter</attr>
    
