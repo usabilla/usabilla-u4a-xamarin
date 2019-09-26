@@ -1,0 +1,47 @@
+stages:
+  - install
+  - nuget
+  - deploy
+
+install:
+  stage: install
+  script:
+    - msbuild UsabillaBindings/XamarinBinding.sln -t:Clean
+    - nuget restore UsabillaBindings/XamarinBinding.sln
+    - msbuild UsabillaBindings/XamarinBinding.sln
+  tags:
+    - xamarin
+  artifacts:
+    paths:
+      - UsabillaBindings/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.Android.Bindings.dll
+      - UsabillaBindings/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.Android.Bindings.pdb
+      - UsabillaBindings/Xamarin.Usabilla.Android/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.dll
+      - UsabillaBindings/Xamarin.Usabilla.Android/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.pdb
+      - UsabillaBindings/Xamarin.Usabilla.iOS/bin/Debug/Xamarin.Usabilla.dll
+      - UsabillaBindings/Xamarin.Usabilla.iOS/bin/Debug/Xamarin.Usabilla.pdb
+      - UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.dll
+      - UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.pdb
+      - UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.dll
+      - UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.pdb
+
+nuget:
+  stage: nuget
+  script:
+    - mkdir artifact
+    - nuget pack nuget/Usabilla.nuspec -OutputDirectory artifact
+  tags:
+    - xamarin
+  artifacts:
+    paths:
+      - artifact
+
+upload:
+  stage: deploy
+  script:
+    - nuget push artifact/*.nupkg $NUGET_ORG_KEY -src https://api.nuget.org/v3/index.json
+  only:
+    - /v[0-9]+\.[0-9]+\.[0-9]+.*/
+  except:
+    - branches
+  tags:
+    - xamarin
