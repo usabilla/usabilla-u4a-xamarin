@@ -1,0 +1,60 @@
+stages:
+  - prepare
+  - install
+  - nuget
+  - deploy
+
+build:
+  stage: prepare
+  script:
+    - docker pull $(docker-repo):build-latest || true
+    - >
+      docker build -f ./Dockerfile
+      --tag "$(docker-repo)":build-"$CI_COMMIT_SHA"
+      --tag "$(docker-repo)":build-latest
+      .
+    - docker push "$(docker-repo)":build-"$CI_COMMIT_SHA"
+    - docker push "$(docker-repo)":build-latest
+
+install:
+  stage: install
+  script:
+    - msbuild UsabillaBindings/XamarinBinding.sln -t:Clean
+    - nuget restore UsabillaBindings/XamarinBinding.sln
+    - msbuild UsabillaBindings/XamarinBinding.sln
+  tags:
+    - xamarin
+  artifacts:
+    paths:
+      - UsabillaBindings/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.Android.Bindings.dll
+      - UsabillaBindings/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.Android.Bindings.pdb
+      - UsabillaBindings/Xamarin.Usabilla.Android/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.dll
+      - UsabillaBindings/Xamarin.Usabilla.Android/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.pdb
+      - UsabillaBindings/Xamarin.Usabilla.iOS/bin/Debug/Xamarin.Usabilla.dll
+      - UsabillaBindings/Xamarin.Usabilla.iOS/bin/Debug/Xamarin.Usabilla.pdb
+      - UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.dll
+      - UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.pdb
+      - UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.dll
+      - UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.pdb
+
+nuget:
+  stage: nuget
+  image: $ECR_REPOSITORY/$CI_PROJECT_PATH:build-$CI_COMMIT_SHA
+  script:
+    - mkdir artifact
+    - nuget pack nuget/Usabilla.nuspec -OutputDirectory artifact
+  artifacts:
+    paths:
+      - artifact
+
+upload:
+  stage: deploy
+  image: $ECR_REPOSITORY/$CI_PROJECT_PATH:build-$CI_COMMIT_SHA
+  script:
+    - nuget push artifact/*.nupkg $NUGET_ORG_KEY -src https://api.nuget.org/v3/index.json
+  only:
+    - /v[0-9]+\.[0-9]+\.[0-9]+.*/
+  except:
+    - branches
+  tags:
+    - xamarin
