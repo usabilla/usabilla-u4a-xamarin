@@ -88,9 +88,9 @@
     <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.pdb" target="lib/monoandroid90/Xamarin.Usabilla.PCL.pdb" />
     <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.dll" target="lib/xamarinios10/Xamarin.Usabilla.PCL.dll" />
     <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.pdb" target="lib/xamarinios10/Xamarin.Usabilla.PCL.pdb" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.dll" target="lib/monoandroid90+xamarinios10/Xamarin.Usabilla.PCL.dll" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.pdb" target="lib/monoandroid90+xamarinios10/Xamarin.Usabilla.PCL.pdb" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.dll" target="lib/monoandroid90+xamarinios10/Xamarin.Usabilla.dll" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.pdb" target="lib/monoandroid90+xamarinios10/Xamarin.Usabilla.pdb" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.dll" target="lib/portable-net45+monoandroid90+xamarinios10/Xamarin.Usabilla.PCL.dll" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/Xamarin.Usabilla.PCL.pdb" target="lib/portable-net45+monoandroid90+xamarinios10/Xamarin.Usabilla.PCL.pdb" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.dll" target="lib/portable-net45+monoandroid90+xamarinios10/Xamarin.Usabilla.dll" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/Xamarin.Usabilla.pdb" target="lib/portable-net45+monoandroid90+xamarinios10/Xamarin.Usabilla.pdb" />
   </files>
 </package>
