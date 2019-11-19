@@ -1,0 +1,105 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1 effective-4.1.50 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name Usabilla
+import AVFoundation
+import Foundation
+import Photos
+import Swift
+import SystemConfiguration
+import UIKit
+@_exported import Usabilla
+public struct UsabillaTheme {
+  public var colors: UsabillaTheme.Colors
+  public var fonts: UsabillaTheme.Fonts
+  public var images: UsabillaTheme.Images
+  public var statusBarStyle: UIKit.UIStatusBarStyle?
+  public struct Colors {
+    public var header: UIKit.UIColor?
+  }
+  public struct Fonts {
+    public var regular: UIKit.UIFont?
+    public var bold: UIKit.UIFont?
+    public var titleSize: CoreGraphics.CGFloat
+    public var textSize: CoreGraphics.CGFloat
+    public var miniSize: CoreGraphics.CGFloat
+  }
+  public struct Images {
+    public var enabledEmoticons: [UIKit.UIImage]
+    public var disabledEmoticons: [UIKit.UIImage]?
+    public var star: UIKit.UIImage
+    public var starOutline: UIKit.UIImage
+  }
+  public init()
+}
+@objc(Usabilla) open class Usabilla : ObjectiveC.NSObject {
+  @objc public static var customVariables: [Swift.String : Any] {
+    @objc get
+    @objc set
+  }
+  @objc public static var defaultDataMasks: [Swift.String] {
+    @objc get
+  }
+  @objc public static var orientation: UIKit.UIInterfaceOrientationMask {
+    @objc get
+    @objc set
+  }
+  @objc public static var localizedStringFile: Swift.String {
+    @objc get
+    @objc set
+  }
+  public static var theme: UsabillaTheme {
+    get
+    set
+  }
+  @objc public static var delegate: UsabillaDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc public static var dismissAutomatically: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public static var canDisplayCampaigns: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public static var debugEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public class func sendEvent(_ event: Swift.String)
+  @objc public class func initialize(appID: Swift.String?, completion: (() -> Swift.Void)? = nil)
+  @objc open class func dismiss() -> Swift.Bool
+  @objc public class func removeCachedForms()
+  @objc public class func resetCampaignData(completion: (() -> Swift.Void)?)
+  @objc public class func resetCampaignData()
+  @objc public class func preloadFeedbackForms(withFormIDs formIDs: [Swift.String])
+  @objc public class func loadFeedbackForm(_ formID: Swift.String, screenshot: UIKit.UIImage? = nil)
+  public class func loadFeedbackForm(_ formID: Swift.String, screenshot: UIKit.UIImage? = nil, theme: UsabillaTheme = theme)
+  @objc public class func takeScreenshot(_ view: UIKit.UIView) -> UIKit.UIImage?
+  open class func setDataMasking(masks: [Swift.String] = defaultDataMasks, maskCharacter: Swift.Character = "X")
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct FeedbackResult {
+  public let rating: Swift.Int?
+  public let abandonedPageIndex: Swift.Int?
+  public var sent: Swift.Bool {
+    get
+  }
+}
+public struct UBError : Swift.Error {
+  public let description: Swift.String
+}
+@objc(UsabillaDelegate) public protocol UsabillaDelegate : AnyObject {
+  @objc func formDidLoad(form: UIKit.UINavigationController)
+  @objc func formDidFailLoading(error: Any)
+  @objc func formDidClose(formID: Swift.String, withFeedbackResults results: [Any], isRedirectToAppStoreEnabled: Swift.Bool)
+  @objc func formWillClose(form: UIKit.UINavigationController, formID: Swift.String, withFeedbackResults results: [Any], isRedirectToAppStoreEnabled: Swift.Bool)
+  @objc func campaignDidClose(withFeedbackResult result: Any, isRedirectToAppStoreEnabled: Swift.Bool)
+}
+extension UsabillaDelegate {
+  public func formDidClose(formID: Swift.String, withFeedbackResults results: [FeedbackResult], isRedirectToAppStoreEnabled: Swift.Bool)
+  public func formWillClose(form: UIKit.UINavigationController, formID: Swift.String, withFeedbackResults results: [FeedbackResult], isRedirectToAppStoreEnabled: Swift.Bool)
+  public func campaignDidClose(withFeedbackResult result: FeedbackResult, isRedirectToAppStoreEnabled: Swift.Bool)
+}

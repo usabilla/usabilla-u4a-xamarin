@@ -157,6 +157,7 @@ namespace Xamarin.Usabilla
                 {
                     var window = UIApplication.SharedApplication.KeyWindow;
                     var vc = window.RootViewController;
+                    currentForm.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
                     vc.PresentViewController(currentForm, true, null);
                     result.Invoke(XUFormLoadResult.FormDidSucceedLoading);
                     return;
