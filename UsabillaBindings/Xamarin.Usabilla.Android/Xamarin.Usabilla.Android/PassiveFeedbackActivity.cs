@@ -9,8 +9,7 @@ using Android.Graphics;
 namespace Xamarin.Usabilla
 {
     [Activity(Label = "PassiveFeedbackActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar")]
-    public class PassiveFeedbackActivity : AppCompatActivity, UsabillaAndroid.IUsabillaFormCallback,
-        IDialogInterfaceOnDismissListener
+    public class PassiveFeedbackActivity : AppCompatActivity, UsabillaAndroid.IUsabillaFormCallback
     {
         private const string EXTRA_FORMID = "extra_form_id";
         private const string EXTRA_SCREENSHOT = "extra_screenshot";
@@ -29,7 +28,7 @@ namespace Xamarin.Usabilla
 
             public override void OnReceive(Context context, Intent intent)
             {
-                activity.DismissForm();
+                activity.Finish();
             }
         }
 
@@ -49,13 +48,17 @@ namespace Xamarin.Usabilla
 
             passiveReceiver = new PassiveFormCloseReceiver(this);
 
-            if (Intent.GetBooleanExtra(EXTRA_SCREENSHOT, false))
+            if (savedInstanceState == null)
             {
-                Bitmap screenshot = UsabillaAndroid.Usabilla.Instance.TakeScreenshot(UsabillaXamarin.Instance.Activity);
-                UsabillaAndroid.Usabilla.Instance.LoadFeedbackForm(Intent.GetStringExtra(EXTRA_FORMID), screenshot, this);
-                return;
+                if (Intent.GetBooleanExtra(EXTRA_SCREENSHOT, false))
+                {
+                    Bitmap screenshot = UsabillaAndroid.Usabilla.Instance.TakeScreenshot(UsabillaXamarin.Instance.Activity);
+                    UsabillaAndroid.Usabilla.Instance.LoadFeedbackForm(Intent.GetStringExtra(EXTRA_FORMID), screenshot, this);
+                    return;
+                }
+
+                UsabillaAndroid.Usabilla.Instance.LoadFeedbackForm(Intent.GetStringExtra(EXTRA_FORMID), this);
             }
-            UsabillaAndroid.Usabilla.Instance.LoadFeedbackForm(Intent.GetStringExtra(EXTRA_FORMID), this);
         }
 
         protected override void OnStart()
@@ -98,29 +101,6 @@ namespace Xamarin.Usabilla
         public void MainButtonTextUpdated(string p0)
         {
             // do nothing
-        }
-
-        // Finishes the activity but waits for the dialog to be dismissed before finishing
-        private void DismissForm()
-        {
-            // Make sure the dialog is shown before doing anything else
-            SupportFragmentManager.ExecutePendingTransactions();
-
-            V4.App.Fragment currentFragment = SupportFragmentManager.Fragments[SupportFragmentManager.Fragments.Count - 1];
-            if (!(currentFragment is V4.App.DialogFragment))
-            {
-                Finish();
-                return;
-            }
-
-            V4.App.DialogFragment dialogFragment = (V4.App.DialogFragment)currentFragment;
-
-            dialogFragment.Dialog.SetOnDismissListener(this);
-        }
-
-        public void OnDismiss(IDialogInterface dialog)
-        {
-            Finish();
         }
     }
 }
