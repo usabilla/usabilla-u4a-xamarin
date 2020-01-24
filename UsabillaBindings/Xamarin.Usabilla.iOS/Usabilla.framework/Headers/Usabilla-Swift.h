@@ -204,8 +204,29 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
+@class NSString;
+
+SWIFT_CLASS_NAMED("FeedbackResult")
+@interface FeedbackResult : NSObject
+@property (nonatomic, strong) NSString * _Nullable rating;
+@property (nonatomic, strong) NSString * _Nullable abandonedPageIndex;
+@property (nonatomic, readonly) BOOL sent;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
 
 
+
+
+
+
+SWIFT_CLASS_NAMED("UBError")
+@interface UBError : NSObject
+@property (nonatomic, strong) NSString * _Nullable errorDescription;
+- (nonnull instancetype)initWithDescription:(NSString * _Nullable)description OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'UBError.init(description:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
 
 
 
@@ -281,6 +302,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL debugEnabled;)
 @end
 
 @class UINavigationController;
+
+@interface Usabilla (SWIFT_EXTENSION(Usabilla))
++ (UINavigationController * _Nullable)formViewControllerForFormData:(NSData * _Nonnull)data screenshot:(UIImage * _Nullable)screenshot SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'Usabilla.formViewController(forFormData:screenshot:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)displayCampaignFormWithData:(NSData * _Nonnull)data SWIFT_DEPRECATED_OBJC("Swift method 'Usabilla.displayCampaignForm(withData:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
 
 SWIFT_PROTOCOL_NAMED("UsabillaDelegate")
 @protocol UsabillaDelegate
@@ -529,9 +556,29 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSString;
+
+SWIFT_CLASS_NAMED("FeedbackResult")
+@interface FeedbackResult : NSObject
+@property (nonatomic, strong) NSString * _Nullable rating;
+@property (nonatomic, strong) NSString * _Nullable abandonedPageIndex;
+@property (nonatomic, readonly) BOOL sent;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
 
 
 
+
+
+
+SWIFT_CLASS_NAMED("UBError")
+@interface UBError : NSObject
+@property (nonatomic, strong) NSString * _Nullable errorDescription;
+- (nonnull instancetype)initWithDescription:(NSString * _Nullable)description OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'UBError.init(description:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
 
 
 
@@ -607,6 +654,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL debugEnabled;)
 @end
 
 @class UINavigationController;
+
+@interface Usabilla (SWIFT_EXTENSION(Usabilla))
++ (UINavigationController * _Nullable)formViewControllerForFormData:(NSData * _Nonnull)data screenshot:(UIImage * _Nullable)screenshot SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'Usabilla.formViewController(forFormData:screenshot:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)displayCampaignFormWithData:(NSData * _Nonnull)data SWIFT_DEPRECATED_OBJC("Swift method 'Usabilla.displayCampaignForm(withData:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
 
 SWIFT_PROTOCOL_NAMED("UsabillaDelegate")
 @protocol UsabillaDelegate
