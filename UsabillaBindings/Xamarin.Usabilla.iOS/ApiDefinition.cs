@@ -4,9 +4,23 @@ using UIKit;
 
 namespace UsabillaIos
 {
-	[BaseType(typeof(NSObject), Name = "Usabilla"
-        )]
-
+    [BaseType(typeof(NSObject), Name = "FeedbackResult")]
+    interface FeedbackResult
+    {
+        [Export("rating")]
+        string Rating { get; set; }
+        [Export("abandonedPageIndex")]
+        string AbandonedPageIndex { get; set; }
+        [Export("sent")]
+        bool Sent { get; }
+    }
+    [BaseType(typeof(NSObject), Name = "UBError")]
+    interface UBError
+    {
+        [Export("errorDescription")]
+        string description { get; set; }
+    }
+    [BaseType(typeof(NSObject), Name = "Usabilla")]
     interface Usabilla
 	{
         [Static, Export("initializeWithAppID:completion:")]
@@ -71,20 +85,16 @@ namespace UsabillaIos
 
         [Abstract]
         [Export("formDidFailLoadingWithError:")]
-        void FormDidFailLoading(UBError form);
+        void FormDidFailLoading(UBError description);
 
-        [EventArgs("FormDidClose")]
-        [Export("formDidCloseWithFormID:results:isRedirectToAppStoreEnabled:")]
-        void FormDidClose(String formID, NSArray feedbackResults, bool isRedirectToAppStoreEnabled);
+        [Export("formDidCloseWithFormID:withFeedbackResults:isRedirectToAppStoreEnabled:")]
+        void FormDidClose(string formID, FeedbackResult[] result, bool isRedirectToAppStoreEnabled);
 
         [EventArgs("FormWillClose")]
-
         [Export("formWillCloseWithForm:formID:results:isRedirectToAppStoreEnabled:")]
         void FormWillClose(UINavigationController form, String formID, NSArray feedbackResults, bool isRedirectToAppStoreEnabled);
 
         [Export("campaignDidCloseWithFeedbackResult:isRedirectToAppStoreEnabled:")]
-        [EventArgs("CampaignDidClose")]
-
         void CampaignDidClose(FeedbackResult feedbackResult, bool isRedirectToAppStoreEnabled);
     }
 }

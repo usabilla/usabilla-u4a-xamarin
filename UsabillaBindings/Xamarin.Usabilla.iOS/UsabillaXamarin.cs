@@ -7,6 +7,127 @@ using UsabillaIos;
 
 namespace Xamarin.Usabilla
 {
+    public sealed class UBFeedbackResult: IXUFormCompletionResult
+    {
+        private string? _formId;
+        private UBFeedback? _result;
+        private UBFeedbackError? _error;
+        private bool? _isRedirectToStoreEnabled;
+        private bool _isFormSucceeded;
+
+
+        public UBFeedbackResult(UBError err)
+        {
+            _isFormSucceeded = (_isRedirectToStoreEnabled == null) ? false : true;
+            _error = new UBFeedbackError(err);
+        }
+        public UBFeedbackResult(FeedbackResult res, bool isRedirectEnabled)
+        {
+            _isFormSucceeded = (_isRedirectToStoreEnabled == null) ? false : true;
+            _result = new UBFeedback(res);
+            _isRedirectToStoreEnabled = isRedirectEnabled;
+        }
+
+        public UBFeedbackResult(string formID, FeedbackResult res, bool isRedirectEnabled)
+        {
+            _isFormSucceeded = (_isRedirectToStoreEnabled == null) ? false : true;
+            _formId = formID;
+            _result = new UBFeedback(res);
+            _isRedirectToStoreEnabled = isRedirectEnabled;
+        }
+
+        public bool isFormSucceeded
+        {
+            get
+            {
+                return _isFormSucceeded;
+            }
+
+        }
+        public string? formId
+        {
+            get
+            {
+                return _formId;
+            }
+        }
+
+        public IUBFeedback? result
+        {
+            get
+            {
+                return _result;
+            }
+        }
+
+        public bool? isRedirectToAppStoreEnabled
+        {
+            get
+            {
+                return _isRedirectToStoreEnabled;
+            }
+
+        }
+
+        public IUBError? error
+        {
+            get
+            {
+                return _error;
+            }
+        }
+    }
+
+    public class UBFeedbackError: IUBError
+    {
+        private UBError error;
+
+        public UBFeedbackError(UBError err)
+        {
+            error = err;
+        }
+
+        public string description
+        {
+            get
+            {
+                return error.description;
+            }
+        }
+    }
+
+    public class UBFeedback: IUBFeedback
+    {
+        private FeedbackResult result;
+
+        public UBFeedback(FeedbackResult res)
+        {
+            result = res;
+        }
+
+        public bool Sent
+        {
+            get
+            {
+                return result.Sent;
+            }
+        }
+        public int Rating
+        {
+            get
+            {
+                return int.Parse(result.Rating);
+            }
+        }
+        public int AbandonedPageIndex
+        {
+            get
+            {
+                return int.Parse(result.AbandonedPageIndex);
+            }
+        }
+    }
+
     public sealed class UsabillaXamarin : IUsabillaXamarin
     {
 
@@ -22,8 +143,9 @@ namespace Xamarin.Usabilla
             UsabillaIos.Usabilla.Delegate = aDelegate;
         }
 
-        public void SendEvent(string anEvent)
+        public void SendEvent(string anEvent, Action<IXUFormCompletionResult> result)
         {
+            aDelegate.Result = result;
             UsabillaIos.Usabilla.SendEvent(anEvent);
         }
 
@@ -32,13 +154,13 @@ namespace Xamarin.Usabilla
             UsabillaIos.Usabilla.ResetCampaignData(null);
         }
 
-        public void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result)
+        public void ShowFeedbackForm(string formId, Action<IXUFormCompletionResult> result)
         {
             aDelegate.Result = result;
             UsabillaIos.Usabilla.LoadFeedbackForm(formId, null);
         }
 
-        public void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result)
+        public void ShowFeedbackFormWithScreenshot(string formId, Action<IXUFormCompletionResult> result)
         {
             aDelegate.Result = result;
             var window = UIApplication.SharedApplication.KeyWindow;
@@ -121,23 +243,28 @@ namespace Xamarin.Usabilla
          */
         private class CustomUsabillaDelegate : UsabillaIos.UsabillaDelegate
         {
-            private Action<XUFormLoadResult> result;
+            private Action<IXUFormCompletionResult> result;
             private UINavigationController currentForm;
-            public Action<XUFormLoadResult> Result { get => result; set => result = value; }
+            public Action<IXUFormCompletionResult> Result { get => result; set => result = value; }
 
-            public override void CampaignDidClose(FeedbackResult feedbackResult, bool isRedirectToAppStoreEnabled)
+            public override void CampaignDidClose(FeedbackResult withFeedbackResult, bool isRedirectToAppStoreEnabled)
             {
-                throw new NotImplementedException();
+                var obj = withFeedbackResult;
+                var aResponse = new UBFeedbackResult(obj, isRedirectToAppStoreEnabled);
+                result.Invoke(aResponse);
             }
 
-            public override void FormDidClose(string formID, NSArray feedbackResults, bool isRedirectToAppStoreEnabled)
+            public override void FormDidClose(string formID, FeedbackResult[] withFeedbackResults, bool isRedirectToAppStoreEnabled)
             {
-                throw new NotImplementedException();
+                var obj = withFeedbackResults[0];
+                var aResponse = new UBFeedbackResult(formID, obj, isRedirectToAppStoreEnabled);
+                result.Invoke(aResponse);
             }
 
-            public override void FormDidFailLoading(UBError form)
+            public override void FormDidFailLoading(UBError error)
             {
-                result.Invoke(XUFormLoadResult.FormDidFailLoading);
+                var aResponse = new UBFeedbackResult(error);
+                result.Invoke(aResponse);
             }
 
             public override void FormDidLoad(UINavigationController form)
@@ -159,10 +286,8 @@ namespace Xamarin.Usabilla
                     var vc = window.RootViewController;
                     currentForm.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
                     vc.PresentViewController(currentForm, true, null);
-                    result.Invoke(XUFormLoadResult.FormDidSucceedLoading);
                     return;
-                }
-                result.Invoke(XUFormLoadResult.FormDidFailLoading);            
+                }         
             }
         }
     }
