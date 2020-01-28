@@ -15,15 +15,16 @@ namespace Xamarin.Usabilla.Sample
             UbImage.Source = ImageSource.FromResource("Xamarin.Usabilla.Sample.logo.png");
         }
 
-        private void formHandler(XUFormLoadResult result)
+        private void formCompletionHandler(IXUFormCompletionResult res)
         {
-            System.Diagnostics.Debug.WriteLine("Result of showForm : {0}", result);
+            System.Diagnostics.Debug.WriteLine("Result of FormCompletion : {0}", res);
         }
 
         void OnSendEventClicked(object sender, EventArgs args)
         {
+            Action<IXUFormCompletionResult> handler = formCompletionHandler;
             EventName.Unfocus();
-            UsabillaXamarin.Instance.SendEvent(eventText);
+            UsabillaXamarin.Instance.SendEvent(eventText, handler);
         }
 
         void OnResetClicked(object sender, EventArgs args)
@@ -38,7 +39,7 @@ namespace Xamarin.Usabilla.Sample
 
         void OnLoadFormClicked(object sender, EventArgs e) 
         {
-            Action<XUFormLoadResult> handler = formHandler;
+            Action<IXUFormCompletionResult> handler = formCompletionHandler;
             UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshot("[YOUR FORM ID HERE]", handler);
         }
     }
