@@ -13,7 +13,7 @@ namespace Xamarin.Usabilla.Sample
             InitializeComponent();
             UsabillaXamarin.Instance.DebugEnabled = true;
             UsabillaXamarin.Instance.Initialize(AppId);
-            MainPage = new MainPage();
+            MainPage = new SplashPage();
         
         }
 

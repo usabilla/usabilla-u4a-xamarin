@@ -125,10 +125,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
     <PackageReference Include="Xamarin.Swift">
-      <Version>1.0.2</Version>
+      <Version>1.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>4.8.0.1821</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +142,17 @@
       <Project>{14272049-301D-4FAC-AA73-1D7B53957AFA}</Project>
       <Name>Xamarin.Usabilla.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla.PCL.csproj">
+      <Project>{42DE57C7-30A6-4A47-B8F0-A756F9D027F3}</Project>
+      <Name>Xamarin.Usabilla.PCL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg_xamarin.png" />
+    <BundleResource Include="Resources\splash_xamarin.png" />
+    <BundleResource Include="Resources\MiloOT-Bold.otf" />
+    <BundleResource Include="Resources\MiloOT-Medi.otf" />
+    <BundleResource Include="Resources\MiloOT-Text.otf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

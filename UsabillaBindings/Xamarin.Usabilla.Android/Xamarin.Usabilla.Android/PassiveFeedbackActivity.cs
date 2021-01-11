@@ -2,14 +2,13 @@
 using Android.Content;
 using Android.OS;
 using V4 = Android.Support.V4;
-using Android.Support.V7.App;
 using Com.Usabilla.Sdk.Ubform.Sdk.Form;
 using Android.Graphics;
 
 namespace Xamarin.Usabilla
 {
     [Activity(Label = "PassiveFeedbackActivity", Theme = "@style/Theme.AppCompat.Light.NoActionBar")]
-    public class PassiveFeedbackActivity : AppCompatActivity, UsabillaAndroid.IUsabillaFormCallback
+    public class PassiveFeedbackActivity : AndroidX.AppCompat.App.AppCompatActivity, UsabillaAndroid.IUsabillaFormCallback
     {
         private const string EXTRA_FORMID = "extra_form_id";
         private const string EXTRA_SCREENSHOT = "extra_screenshot";
@@ -64,13 +63,13 @@ namespace Xamarin.Usabilla
         protected override void OnStart()
         {
             base.OnStart();
-            V4.Content.LocalBroadcastManager.GetInstance(this).RegisterReceiver(passiveReceiver, passiveFilter);
+            AndroidX.LocalBroadcastManager.Content.LocalBroadcastManager.GetInstance(this).RegisterReceiver(passiveReceiver, passiveFilter);
         }
 
         protected override void OnStop()
         {
             base.OnStop();
-            V4.Content.LocalBroadcastManager.GetInstance(this).UnregisterReceiver(passiveReceiver);
+            AndroidX.LocalBroadcastManager.Content.LocalBroadcastManager.GetInstance(this).UnregisterReceiver(passiveReceiver);
         }
 
         protected override void OnDestroy()

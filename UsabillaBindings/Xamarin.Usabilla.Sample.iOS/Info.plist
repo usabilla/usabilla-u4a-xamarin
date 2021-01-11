@@ -38,5 +38,11 @@
 	<string>To be able to select screenshots</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To be able to capture screenshots</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MiloOT-Bold.otf</string>
+		<string>MiloOT-Medi.otf</string>
+		<string>MiloOT-Text.otf</string>
+	</array>
 </dict>
 </plist>

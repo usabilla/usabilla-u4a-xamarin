@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    x:Class="Xamarin.Usabilla.Sample.SplashPage">
+
+    <RelativeLayout>
+
+        <Image
+            Aspect="Fill"
+            Source="splash_xamarin.png" />
+    </RelativeLayout>
+
+</ContentPage>

@@ -11,8 +11,8 @@ namespace Xamarin.Usabilla.Sample
         public MainPage()
         {
             InitializeComponent();
-
             UbImage.Source = ImageSource.FromResource("Xamarin.Usabilla.Sample.logo.png");
+            NavigationPage.SetHasNavigationBar(this,false);
         }
 
         private void formHandler(XUFormLoadResult result)
