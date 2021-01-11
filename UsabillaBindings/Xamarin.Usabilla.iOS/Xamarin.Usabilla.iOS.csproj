@@ -71,13 +71,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="Usabilla.framework">
+    <BundleResource Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="UsabillaXamarin.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets" Condition="Exists('..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets')" />
