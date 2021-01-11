@@ -1,48 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage
+<ContentPage xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Xamarin.Usabilla.Sample.MainPage"
-    BackgroundColor="White">
+    x:Class="Xamarin.Usabilla.Sample.MainPage">
 
-    <StackLayout
-        VerticalOptions="Center"
-        HorizontalOptions="FillAndExpand"
-        Margin="32"
-        Spacing="16">
+    <RelativeLayout>
+        <Image
+            Aspect="Fill"
+            Source="bg_xamarin.png" />
 
-        <Image x:Name="UbImage"/>
+        <StackLayout Orientation="Vertical" Margin="32">
+            <Label Text="Usabilla" TextColor="#00A5C9" FontSize="48" FontFamily="{StaticResource BoldFont}"  />
+            <Label Text="Xamarin" TextColor="#00A5C9" FontSize="48" FontFamily="{StaticResource BoldFont}" />
+            <Label Text="Demo app" TextColor="#00A5C9" FontSize="48" FontFamily="{StaticResource BoldFont}" />
+        </StackLayout>
 
-        <Button
-            Style="{StaticResource buttonStyle}"
-            Text="Show Form"
-            VerticalOptions="CenterAndExpand"
+        <StackLayout
             HorizontalOptions="FillAndExpand"
-            Clicked="OnLoadFormClicked" />
-
-        <StackLayout Orientation="Horizontal">
-            
-            <Entry
-                x:Name="EventName"
-                Placeholder="Event"
-                PlaceholderColor="Gray" 
-                TextChanged="Entry_Changed"
-                HorizontalOptions="FillAndExpand"/>
+            Margin="32"
+            Spacing="16"
+            VerticalOptions="CenterAndExpand"
+            RelativeLayout.WidthConstraint=
+            "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+            RelativeLayout.HeightConstraint=
+           "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}">
 
             <Button
-                Style="{StaticResource buttonStyle}"
-                Text="Send Event"
-                Clicked="OnSendEventClicked"
-                HorizontalOptions="FillAndExpand"/>
+                Clicked="OnLoadFormClicked"
+                HorizontalOptions="FillAndExpand"
+                Style="{StaticResource filledButtonStyle}"
+                Text="SHOW FORM"
+                VerticalOptions="CenterAndExpand" />
+
+            <StackLayout Orientation="Horizontal">
+
+                <Entry
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Enter event here"
+                    PlaceholderColor="Gray"
+                    TextChanged="Entry_Changed"
+                    x:Name="EventName" />
+
+                <Button
+                    Clicked="OnSendEventClicked"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{StaticResource borderedButtonStyle}"
+                    Text="SEND EVENT" />
+
+            </StackLayout>
+
+            <Button
+                Clicked="OnResetClicked"
+                HorizontalOptions="FillAndExpand"
+                Style="{StaticResource borderedButtonStyle}"
+                Text="RESET"
+                VerticalOptions="CenterAndExpand" />
 
         </StackLayout>
 
-        <Button
-            Style="{StaticResource buttonStyle}"
-            Text="Reset"
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="FillAndExpand"
-            Clicked="OnResetClicked" />
+        <StackLayout
+            Orientation="Horizontal"
+            Padding="0,0,0,16"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                              Property=Width,
+                                                              Factor=0.5,
+                                                              Constant=-40}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                              Property=Height,
+                                                              Factor=1,
+                                                              Constant=-76}"
+            VerticalOptions="End">
 
-    </StackLayout>
+                <Image x:Name="UbImage" HeightRequest="60" WidthRequest="80"/>
+         
+        </StackLayout>
+    </RelativeLayout>
 </ContentPage>

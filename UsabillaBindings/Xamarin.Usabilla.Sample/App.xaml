@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Xamarin.Usabilla.Sample.App">
     <Application.Resources>
-        <Style x:Key="buttonStyle" TargetType="Button">
+        <Style x:Key="filledButtonStyle" TargetType="Button">
             <Setter Property="BackgroundColor" Value="#00A5C9" />
             <Setter Property="BorderRadius" Value="5" />
+            <Setter Property="FontFamily" Value="StaticResource MeduimFont}" />
             <Setter Property="TextColor" Value="White" />
         </Style>
+
+         <Style x:Key="borderedButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#FFFFFF" />
+            <Setter Property="BorderRadius" Value="5" />
+            <Setter Property="BorderColor" Value="#00A5C9"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="FontFamily" Value="StaticResource MeduimFont}" />
+            <Setter Property="TextColor" Value="#00A5C9" />
+        </Style>
+
+        <ResourceDictionary>
+             <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                 <On Platform="Android" Value="MiloOT-Bold.otf#Milo OT" />
+                 <On Platform="iOS" Value="MiloOT-Bold" />
+             </OnPlatform>
+
+             <OnPlatform x:TypeArguments="x:String" x:Key="MeduimFont">
+                 <On Platform="Android" Value="MiloOT-Medi.otf#Milo OT" />
+                 <On Platform="iOS" Value="MiloOT-Medi" />
+             </OnPlatform>
+
+             <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
+                 <On Platform="Android" Value="MiloOT-Text.otf#Milo OT" />
+                 <On Platform="iOS" Value="MiloOT-Text" />
+             </OnPlatform>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

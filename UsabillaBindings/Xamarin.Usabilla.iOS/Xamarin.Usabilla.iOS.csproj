@@ -50,6 +50,9 @@
     <Reference Include="Xamarin.Swift3">
       <HintPath>..\packages\Xamarin.Swift3.3.0.1\lib\xamarinios10\Xamarin.Swift3.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Swift4">
+      <HintPath>..\packages\Xamarin.Swift4.4.0.0.2\lib\xamarinios10\Xamarin.Swift4.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,9 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="Structs.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla.PCL.csproj">
@@ -76,6 +76,10 @@
       <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets" Condition="Exists('..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets')" />
+  <Import Project="..\packages\Xamarin.Swift4.4.0.0.2\build\Xamarin.Swift4.targets" Condition="Exists('..\packages\Xamarin.Swift4.4.0.0.2\build\Xamarin.Swift4.targets')" />
 </Project>
