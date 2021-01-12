@@ -1,9 +1,9 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using V4 = Android.Support.V4;
 using Com.Usabilla.Sdk.Ubform.Sdk.Form;
 using Android.Graphics;
+using Com.Usabilla.Sdk.Ubform.Sdk.Entity;
 
 namespace Xamarin.Usabilla
 {
@@ -27,6 +27,12 @@ namespace Xamarin.Usabilla
 
             public override void OnReceive(Context context, Intent intent)
             {
+                if (intent != null)
+                {
+                    FeedbackResult parcelable = (FeedbackResult)intent.GetParcelableExtra(FeedbackResult.IntentFeedbackResult);
+                    var aResponse = new UBFeedbackResult(parcelable);
+                    UsabillaXamarin.Instance.FormCallback(aResponse);
+                }
                 activity.Finish();
             }
         }
@@ -82,7 +88,7 @@ namespace Xamarin.Usabilla
 
         public void FormLoadFail()
         {
-            UsabillaXamarin.Instance.FormCallback(XUFormLoadResult.FormDidFailLoading);
+            FormDidFailLoading();
             Finish();
         }
 
@@ -90,11 +96,18 @@ namespace Xamarin.Usabilla
         {
             if (!IsDestroyed)
             {
-                UsabillaXamarin.Instance.FormCallback(XUFormLoadResult.FormDidSucceedLoading);
                 SupportFragmentManager.BeginTransaction().Replace(Resource.Id.container, parameter.Fragment, FRAGMENT_TAG).Commit();
                 return;
             }
-            UsabillaXamarin.Instance.FormCallback(XUFormLoadResult.FormDidFailLoading);
+            FormDidFailLoading();
+        }
+
+        public void FormDidFailLoading()
+        {
+            var errorString = "Unable to load the form";
+            var err = new UBError(errorString);
+            var aResponse = new UBFeedbackResult(err);
+            UsabillaXamarin.Instance.FormCallback(aResponse);
         }
 
         public void MainButtonTextUpdated(string p0)
