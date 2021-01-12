@@ -49,7 +49,7 @@ namespace Xamarin.Usabilla
         {
             throw new NotImplementedException("Dummy Implementation for Initialize; should not be called");
         }
-        public void SendEvent(string anEvent)
+        public void SendEvent(string anEvent, Action<IXUFormCompletionResult> result)
         {
             throw new NotImplementedException("Dummy Implementation for SendEvent; should not be called");
         }
@@ -57,11 +57,11 @@ namespace Xamarin.Usabilla
         {
             throw new NotImplementedException("Dummy Implementation for Reset; should not be called");
         }
-        public void ShowFeedbackForm(string formId, Action<XUFormLoadResult> result)
+        public void ShowFeedbackForm(string formId, Action<IXUFormCompletionResult> result)
         {
             throw new NotImplementedException("Dummy Implementation for ShowFeedbackForm; should not be called");
         }
-        public void ShowFeedbackFormWithScreenshot(string formId, Action<XUFormLoadResult> result)
+        public void ShowFeedbackFormWithScreenshot(string formId, Action<IXUFormCompletionResult> result)
         {
             throw new NotImplementedException("Dummy Implementation for ShowFeedbackFormWithScreenshoot; should not be called");
         }
