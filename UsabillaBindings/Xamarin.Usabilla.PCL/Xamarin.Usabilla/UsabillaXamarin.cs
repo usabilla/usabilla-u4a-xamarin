@@ -73,5 +73,14 @@ namespace Xamarin.Usabilla
         {
             throw new NotImplementedException("Dummy Implementation for SetDataMasking; should not be called");
         }
+        public void PreloadFeedbackForms(IList<string> formIds)
+        {
+            throw new NotImplementedException("Dummy Implementation for PreloadFeedbackForms; should not be called");
+        }
+
+        public void RemoveCachedForms()
+        {
+            throw new NotImplementedException("Dummy Implementation for RemoveCachedForms; should not be called");
+        }
     }
 }

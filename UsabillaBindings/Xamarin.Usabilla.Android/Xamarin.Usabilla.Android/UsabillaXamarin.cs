@@ -184,7 +184,6 @@ namespace Xamarin.Usabilla
 
         public void Initialize(string appId)
         {
-            Log.Debug("UBInfo", "Initializing SDK");
             UsabillaAndroid.Usabilla.Instance.Initialize(Application.Context, appId);
             UsabillaAndroid.Usabilla.Instance.UpdateFragmentManager(Activity.SupportFragmentManager);
 
@@ -195,20 +194,17 @@ namespace Xamarin.Usabilla
 
         public void SendEvent(string anEvent, Action<IXUFormCompletionResult> result)
         {
-            Log.Debug("UBInfo", anEvent + " is sent");
             UsabillaAndroid.Usabilla.Instance.SendEvent(Application.Context, anEvent);
             FormCallback = result;
         }
 
         public void Reset()
         {
-            Log.Debug("UBInfo", "reset");
             UsabillaAndroid.Usabilla.Instance.ResetCampaignData(Application.Context);
         }
 
         public void ShowFeedbackForm(string formId, Action<IXUFormCompletionResult> result)
         {
-            Log.Debug("UBInfo", "show " + formId);
             Xamarin.Usabilla.PassiveFeedbackActivity.start(Application.Context, formId, false);
             FormCallback = result;
         }
@@ -228,6 +224,16 @@ namespace Xamarin.Usabilla
         {
             masks = masks ?? UsabillaAndroid.UbConstants.DefaultDataMasks;
             UsabillaAndroid.Usabilla.Instance.SetDataMasking(masks, maskCharacter);
+        }
+
+        public void PreloadFeedbackForms(IList<string> formIds)
+        {
+            UsabillaAndroid.Usabilla.Instance.PreloadFeedbackForms(formIds);
+        }
+
+        public void RemoveCachedForms()
+        {
+            UsabillaAndroid.Usabilla.Instance.RemoveCachedForms();
         }
     }
 }
