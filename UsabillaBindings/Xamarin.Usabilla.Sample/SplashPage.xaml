@@ -6,7 +6,9 @@
     <RelativeLayout>
 
         <Image
-            Aspect="Fill"
+            Aspect="AspectFill"
+            RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}"
             Source="splash_xamarin.png" />
     </RelativeLayout>
 
