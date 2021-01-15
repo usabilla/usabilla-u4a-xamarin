@@ -238,6 +238,22 @@ namespace Xamarin.Usabilla
             }
         }
 
+        public void PreloadFeedbackForms(IList<string> formIds)
+        {
+            string[] formIdArray = null;
+            if (formIds != null)
+            {
+                formIdArray = new string[formIds.Count];
+                formIds.CopyTo(formIdArray, 0);
+                UsabillaIos.Usabilla.PreloadFeedbackForms(formIdArray);
+            }
+        }
+
+        public void RemoveCachedForms()
+        {
+            UsabillaIos.Usabilla.RemoveCachedForms();
+        }
+
         /*
          * Private delegate implementation
          */
