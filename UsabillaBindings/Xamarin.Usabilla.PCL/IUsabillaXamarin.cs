@@ -46,5 +46,9 @@ namespace Xamarin.Usabilla.PCL
         bool Dismiss();
 
         void SetDataMasking(IList<string> masks, char maskCharacter);
+
+        void PreloadFeedbackForms(IList<string> formIds);
+
+        void RemoveCachedForms();
     }
 }
