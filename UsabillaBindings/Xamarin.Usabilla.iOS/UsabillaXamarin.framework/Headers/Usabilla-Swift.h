@@ -287,9 +287,9 @@ SWIFT_PROTOCOL_NAMED("UsabillaDelegate")
 
 SWIFT_CLASS_NAMED("UsabillaXamarin")
 @interface Usabilla : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSDictionary<NSString *, id> * _Nonnull customVariables;)
-+ (NSDictionary<NSString *, id> * _Nonnull)customVariables SWIFT_WARN_UNUSED_RESULT;
-+ (void)setCustomVariables:(NSDictionary<NSString *, id> * _Nonnull)newValue;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSDictionary<NSString *, NSString *> * _Nonnull customVariables;)
++ (NSDictionary<NSString *, NSString *> * _Nonnull)customVariables SWIFT_WARN_UNUSED_RESULT;
++ (void)setCustomVariables:(NSDictionary<NSString *, NSString *> * _Nonnull)newValue;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<NSString *> * _Nonnull defaultDataMasks;)
 + (NSArray<NSString *> * _Nonnull)defaultDataMasks SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) UIInterfaceOrientationMask orientation;)
@@ -634,9 +634,9 @@ SWIFT_PROTOCOL_NAMED("UsabillaDelegate")
 
 SWIFT_CLASS_NAMED("UsabillaXamarin")
 @interface Usabilla : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSDictionary<NSString *, id> * _Nonnull customVariables;)
-+ (NSDictionary<NSString *, id> * _Nonnull)customVariables SWIFT_WARN_UNUSED_RESULT;
-+ (void)setCustomVariables:(NSDictionary<NSString *, id> * _Nonnull)newValue;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSDictionary<NSString *, NSString *> * _Nonnull customVariables;)
++ (NSDictionary<NSString *, NSString *> * _Nonnull)customVariables SWIFT_WARN_UNUSED_RESULT;
++ (void)setCustomVariables:(NSDictionary<NSString *, NSString *> * _Nonnull)newValue;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<NSString *> * _Nonnull defaultDataMasks;)
 + (NSArray<NSString *> * _Nonnull)defaultDataMasks SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) UIInterfaceOrientationMask orientation;)

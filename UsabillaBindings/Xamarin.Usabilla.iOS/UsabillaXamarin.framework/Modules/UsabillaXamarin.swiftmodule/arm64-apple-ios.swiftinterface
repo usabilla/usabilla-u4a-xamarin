@@ -8,7 +8,7 @@ import Swift
 import SystemConfiguration
 import UIKit
 @_inheritsConvenienceInitializers @objc(Usabilla) open class UsabillaXamarin : ObjectiveC.NSObject {
-  @objc public static var customVariables: [Swift.String : Any] {
+  @objc public static var customVariables: [Swift.String : Swift.String] {
     @objc get
     @objc set
   }
