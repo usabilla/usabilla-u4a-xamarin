@@ -183,15 +183,13 @@ namespace Xamarin.Usabilla
 
             set
             {
-                NSMutableDictionary<NSString, NSObject> dictionary = new NSMutableDictionary<NSString, NSObject>();
+                NSMutableDictionary<NSString, NSString> dictionary = new NSMutableDictionary<NSString, NSString>();
                 foreach (KeyValuePair<string, string> entry in value)
                 {
-                    NSString val = new NSString(entry.Value);
-                    NSObject obj = NSObject.FromObject(val);
-                    dictionary.Add(new NSString(entry.Key), obj);
+                    dictionary.Add((NSString)entry.Key, (NSString)entry.Value);
                 }
 
-                NSDictionary<NSString, NSObject> aDictionary = new NSDictionary<NSString, NSObject>(dictionary.Keys, dictionary.Values);
+                NSDictionary<NSString, NSString> aDictionary = new NSDictionary<NSString, NSString>(dictionary.Keys, dictionary.Values);
                 if (aDictionary != null)
                 {
                     UsabillaIos.Usabilla.CustomVariables = aDictionary;

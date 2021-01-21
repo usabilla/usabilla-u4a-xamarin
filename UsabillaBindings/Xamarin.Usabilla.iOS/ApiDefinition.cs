@@ -29,7 +29,7 @@ namespace UsabillaIos
         void Initialize([NullAllowed]string appId, [NullAllowed]Action completion);
 
         [Static, Export("customVariables")]
-        NSDictionary<NSString, NSObject> CustomVariables { get; set; }
+        NSDictionary<NSString, NSString> CustomVariables { get; set; }
 
         [Static, Export("delegate"), NullAllowed]
         UsabillaDelegate Delegate { get; set; }
