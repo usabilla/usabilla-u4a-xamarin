@@ -159,6 +159,7 @@ namespace Xamarin.Usabilla
         public IList<string> DefaultMasks => UsabillaAndroid.UbConstants.DefaultDataMasks;
 
         internal Action<IXUFormCompletionResult> FormCallback { get; set; }
+        public string LocalizedStringFile { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private readonly IntentFilter campaignFilter = new IntentFilter(UsabillaAndroid.UbConstants.IntentCloseCampaign);
         private CampaignCloseReceiver campaignReceiver;

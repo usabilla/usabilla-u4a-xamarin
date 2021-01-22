@@ -236,6 +236,19 @@ namespace Xamarin.Usabilla
             }
         }
 
+        public string LocalizedStringFile
+        {
+            get
+            {
+                return UsabillaIos.Usabilla.LocalizedStringFile;
+            }
+
+            set
+            {
+                UsabillaIos.Usabilla.LocalizedStringFile = value;
+            }
+        }
+
         public void PreloadFeedbackForms(IList<string> formIds)
         {
             string[] formIdArray = null;
