@@ -50,5 +50,8 @@ namespace Xamarin.Usabilla.PCL
         void PreloadFeedbackForms(IList<string> formIds);
 
         void RemoveCachedForms();
-    }
+
+        string LocalizedStringFile  { get; set; }
+
+}
 }

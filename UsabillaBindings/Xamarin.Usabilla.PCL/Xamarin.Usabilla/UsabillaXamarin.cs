@@ -82,5 +82,18 @@ namespace Xamarin.Usabilla
         {
             throw new NotImplementedException("Dummy Implementation for RemoveCachedForms; should not be called");
         }
+
+        public string LocalizedStringFile
+        {
+            get
+            {
+                throw new NotImplementedException("Dummy Implementation for LocalizedStringFile - get; should not be called");
+            }
+
+            set
+            {
+                throw new NotImplementedException("Dummy Implementation for LocalizedStringFile - set; should not be called");
+            }
+        }
     }
 }
