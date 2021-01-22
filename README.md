@@ -26,16 +26,60 @@ UsabillaXamarin.Instance.Initialize("[YOUR APP ID HERE]");
 
 To present the form:
 ```C#
-UsabillaXamarin.Instance.ShowFeedbackForm("[YOUR FORM ID HERE]", (XUFormLoadResult) => {
-  // XUFormLoadResult can return XUFormLoadResult.FormDidSucceedLoading or XUFormLoadResult.FormDidFailLoading
-  // to indicate if the form is successfully shown.
+UsabillaXamarin.Instance.ShowFeedbackForm("[YOUR FORM ID HERE]", (XUFormCompletionResult) => {
+// XUFormCompletionResult contains the following information: 
+// isFormSucceeded:  this tells whether a form is shown or not
+// formId: this is an optional field which occurs when called via passive forms
+// result contains an object :
+// rating: this value contains the response to the Mood/Star rating question. 
+// sent: this value contains whether Campaign / Form is sent.
+// abandonedpageindex: this value is set if the user Campaign is closed before submission. 
+// isRedirectToAppStoreEnabled: defining a value will enable the App Store Rating prompt.
+// description :  this is an optional field which tells error description
+});
+```
+
+To present the form with current screenshot:
+```C#
+UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshot("[YOUR FORM ID HERE]", (XUFormCompletionResult) => {
+// XUFormCompletionResult contains the following information: 
+// isFormSucceeded:  this tells whether a form is shown or not
+// formId: this is an optional field which occurs when called via passive forms
+// result contains an object :
+// rating: this value contains the response to the Mood/Star rating question. 
+// sent: this value contains whether Campaign / Form is sent.
+// abandonedpageindex: this value is set if the user Campaign is closed before submission. 
+// isRedirectToAppStoreEnabled: defining a value will enable the App Store Rating prompt.
+// description :  this is an optional field which tells error description
 });
 ```
 
 To send an event:
 ```C#
-UsabillaXamarin.Instance.SendEvent("[YOUR EVENT NAME HERE]");
+UsabillaXamarin.Instance.SendEvent("[YOUR EVENT NAME HERE]", (XUFormCompletionResult) => {
+// XUFormCompletionResult contains the following information: 
+// isFormSucceeded:  this tells whether a form is shown or not
+// formId: this is an optional field which occurs when called via passive forms
+// result contains an object :
+// rating: this value contains the response to the Mood/Star rating question. 
+// sent: this value contains whether Campaign / Form is sent.
+// abandonedpageindex: this value is set if the user Campaign is closed before submission. 
+// isRedirectToAppStoreEnabled: defining a value will enable the App Store Rating prompt.
+// description :  this is an optional field which tells error description
+});
 ```
+To set an Localization :
+For all the text that is not customizable in the web interface, you can provide your own translation.
+For ios  
+using a .string localized file inside your application.
+ And set the string file `Localizable.strings` name as mentioned below **Note : only for ios**
+```C#
+ if (Device.RuntimePlatform == Device.iOS){ 
+   UsabillaXamarin.Instance.LocalizedStringFile = "Localizable"; 
+   }
+```
+For android 
+ using a Strings.xml localized file inside your application.
 
 #### Additional Setup for Android
 You need to set:
