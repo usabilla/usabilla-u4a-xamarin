@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -171,12 +173,6 @@
     </Reference>
     <Reference Include="Xamarin.Kotlin.StdLib">
       <HintPath>..\..\packages\Xamarin.Kotlin.StdLib.1.4.20\lib\monoandroid10.0\Xamarin.Kotlin.StdLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Kotlin.StdLib.Jdk7">
-      <HintPath>..\..\packages\Xamarin.Kotlin.StdLib.Jdk7.1.4.20\lib\monoandroid10.0\Xamarin.Kotlin.StdLib.Jdk7.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Kotlin.StdLib.Jdk8">
-      <HintPath>..\..\packages\Xamarin.Kotlin.StdLib.Jdk8.1.4.20\lib\monoandroid10.0\Xamarin.Kotlin.StdLib.Jdk8.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.KotlinX.Coroutines.Core">
       <HintPath>..\..\packages\Xamarin.KotlinX.Coroutines.Core.1.3.4\lib\monoandroid10.0\Xamarin.KotlinX.Coroutines.Core.dll</HintPath>

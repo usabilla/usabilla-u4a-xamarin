@@ -37,10 +37,10 @@ namespace Xamarin.Usabilla.Sample
             eventText = ((Entry)sender).Text;
         }
 
-        void OnLoadFormClicked(object sender, EventArgs e) 
+        private void OnLoadFormButtonClicked(object sender, EventArgs e)
         {
             Action<IXUFormCompletionResult> handler = formCompletionHandler;
-            UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshot("[YOUR FORM ID HERE]", handler);
+            UsabillaXamarin.Instance.ShowFeedbackFormWithScreenshot("[FORM ID HERE]", handler);
         }
     }
 }

@@ -32,7 +32,7 @@
                                 Factor=1}">
 
             <Button
-                Clicked="OnLoadFormClicked"
+                Clicked="OnLoadFormButtonClicked"
                 HorizontalOptions="FillAndExpand"
                 Style="{StaticResource filledButtonStyle}"
                 Text="SHOW FORM"

@@ -28,6 +28,7 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -38,6 +39,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,6 +54,8 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -63,6 +67,8 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -134,10 +140,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Xamarin.Usabilla.Sample\Xamarin.Usabilla.Sample.csproj">
-      <Project>{AC100708-81FC-44FC-A86C-EA2DA1422C82}</Project>
-      <Name>Xamarin.Usabilla.Sample</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xamarin.Usabilla.iOS\Xamarin.Usabilla.iOS.csproj">
       <Project>{14272049-301D-4FAC-AA73-1D7B53957AFA}</Project>
       <Name>Xamarin.Usabilla.iOS</Name>
@@ -145,6 +147,10 @@
     <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla.PCL.csproj">
       <Project>{42DE57C7-30A6-4A47-B8F0-A756F9D027F3}</Project>
       <Name>Xamarin.Usabilla.PCL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Usabilla.Sample\Xamarin.Usabilla.Sample.csproj">
+      <Project>{AC100708-81FC-44FC-A86C-EA2DA1422C82}</Project>
+      <Name>Xamarin.Usabilla.Sample</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
