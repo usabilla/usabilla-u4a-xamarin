@@ -5,6 +5,14 @@ This Xamarin bridge to the Native Usabilla SDK allows you to load passive feedba
 
 The bridge is created using Xamarin native and does not yet have a unified API for both Android and iOS.
 
+⚠️ From v2.0.0; Usabilla.Xamarin package has been migrated to .netstandard from PCL.
+For more information please check [here](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
+
+⚠️ Make sure you clear your nuget cache before installing the new package by doing: 
+```
+dotnet nuget locals all --clear
+```
+
 ## Installation
 
 Installation is done via NuGet: <https://www.nuget.org/packages/Usabilla.Xamarin>
@@ -12,7 +20,7 @@ Installation is done via NuGet: <https://www.nuget.org/packages/Usabilla.Xamarin
 ## Usage
 
 ### Xamarin.Forms
-The package uses the [Bait and Switch PCL Trick](https://log.paulbetts.org/the-bait-and-switch-pcl-trick/). You need to add the package to the shared, Android and iOS projects.
+- The package uses the Bait and Switch PCL Trick. You need to add the package to the shared, Android and iOS projects.
 
 To use the Xamarin bridge for Xamarin.Forms, you must include:
 ```C#
@@ -68,18 +76,15 @@ UsabillaXamarin.Instance.SendEvent("[YOUR EVENT NAME HERE]", (XUFormCompletionRe
 // description :  this is an optional field which tells error description
 });
 ```
-To set an Localization :
-For all the text that is not customizable in the web interface, you can provide your own translation.
-For ios  
-using a .string localized file inside your application.
- And set the string file `Localizable.strings` name as mentioned below **Note : only for ios**
+To set localization for all the text that is not customizable in the web interface, you can provide your own translation.
+For ios  using a .string localized file inside your application and set the string file `Localizable.strings` name as mentioned below 
+**Note : This is only available for ios**
 ```C#
- if (Device.RuntimePlatform == Device.iOS){ 
-   UsabillaXamarin.Instance.LocalizedStringFile = "Localizable"; 
+ if (Device.RuntimePlatform == Device.iOS) { 
+      UsabillaXamarin.Instance.LocalizedStringFile = "Localizable"; 
    }
 ```
-For android 
- using a Strings.xml localized file inside your application.
+For android, use Strings.xml localized file inside your application.
 
 #### Additional Setup for Android
 You need to set:
@@ -115,9 +120,10 @@ The Xamarin Bridge for Android is similar to the native Android SDK. The only di
 
 You can refer to the [native Android SDK](https://github.com/usabilla/usabilla-u4a-android-sdk), for in-depth explanation of the SDK.
 
-### iOS
-This release uses the Usabilla SDK v6.4.0.
+⚠️ Please note that, from Usabilla.Xamarin v2.0.0, native Android SDK has been temporarily downgraded to version 7.0.9 due to .netstandard compatibility issues.
 
+
+### iOS
 
 To use the Xamarin bridge for iOS, you must include:
 ```C#
