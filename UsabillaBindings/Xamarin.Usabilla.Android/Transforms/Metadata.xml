@@ -36,6 +36,15 @@
 
     <remove-node path="/api/package[@name='com.usabilla.sdk.ubform.di']/class[@name='Module']" />
 
+    <attr path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.model']/class[@name='UbFonts.Creator']/method[@name='newArray']" name="managedReturn">Java.Lang.Object[]</attr>
+    <attr path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.model']/class[@name='UbFonts.Creator']/method[@name='createFromParcel']" name="managedReturn">Java.Lang.Object</attr>
+                                    
+    <attr path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.model']/class[@name='UbImages.Creator']/method[@name='newArray']" name="managedReturn">Java.Lang.Object[]</attr>
+    <attr path="/api/package[@name='com.usabilla.sdk.ubform.sdk.form.model']/class[@name='UbImages.Creator']/method[@name='createFromParcel']" name="managedReturn">Java.Lang.Object</attr>
+
+    <attr path="/api/package[@name='com.usabilla.sdk.ubform.sdk.entity']/class[@name='FeedbackResult.Creator']/method[@name='newArray']" name="managedReturn">Java.Lang.Object[]</attr>
+    <attr path="/api/package[@name='com.usabilla.sdk.ubform.sdk.entity']/class[@name='FeedbackResult.Creator']/method[@name='createFromParcel']" name="managedReturn">Java.Lang.Object</attr>
+
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']" name="managedName">UsabillaAndroid</attr>
     <attr path="/api/package[@name='com.usabilla.sdk.ubform']/interface[@name='UsabillaFormCallback']/method[@name='formLoadSuccess']/parameter[@name='p0']" name="managedName">parameter</attr>
    
