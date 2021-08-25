@@ -3,6 +3,10 @@ stages:
   - nuget
   - deploy
 
+default:
+  tags:
+    - docker-20
+
 install:
   stage: install
   script:
