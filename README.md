@@ -17,6 +17,12 @@ dotnet nuget locals all --clear
 
 Installation is done via NuGet: <https://www.nuget.org/packages/Usabilla.Xamarin>
 
+⚠️ Please note that you need to install following libraries in order to use Usabilla Android for Xamarin;
+- `Install-Package Square.Moshi -Version 1.12.0` 
+- `Install-Package Xamarin.Kotlin.StdLib -Version 1.5.20` 
+If you are targeting Android <= 26, you also need;
+- `Install-Package Xamarin.Android.Tools.DesugarJdkLibs -Version 1.1.5`
+
 ## Usage
 
 ### Xamarin.Forms
