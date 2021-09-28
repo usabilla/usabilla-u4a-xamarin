@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 effective-4.1.50 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 effective-4.1.50 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name UsabillaXamarin
 import AVFoundation
 import Foundation
@@ -60,8 +60,8 @@ import os
   public class func loadFeedbackForm(_ formID: Swift.String, screenshot: UIKit.UIImage? = nil, theme: UsabillaXamarin.UsabillaTheme = theme)
   @objc public class func takeScreenshot(_ view: UIKit.UIView) -> UIKit.UIImage?
   open class func setDataMasking(masks: [Swift.String] = defaultDataMasks, maskCharacter: Swift.Character = "X")
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc(FeedbackResult) public class FeedbackResult : ObjectiveC.NSObject {
   @objc public var rating: Foundation.NSString?
@@ -75,22 +75,24 @@ import os
 }
 @objc(UBError) public class UBError : ObjectiveC.NSObject {
   @objc public var errorDescription: Foundation.NSString?
-  @objc public init(description: Swift.String?)
-  @objc deinit
+  public init(description: Swift.String?)
   @objc override dynamic public init()
+  @objc deinit
 }
-@objc(UsabillaDelegate) public protocol UsabillaDelegate : AnyObject {
+@objc(UsabillaDelegate) public protocol UsabillaDelegate {
   @objc func formDidLoad(form: UIKit.UINavigationController)
   @objc func formDidFailLoading(error: Any)
   @objc func formDidClose(formID: Swift.String, withFeedbackResults results: [UsabillaXamarin.FeedbackResult], isRedirectToAppStoreEnabled: Swift.Bool)
   @objc func formWillClose(form: UIKit.UINavigationController, formID: Swift.String, withFeedbackResults results: [Any], isRedirectToAppStoreEnabled: Swift.Bool)
   @objc func campaignDidClose(withFeedbackResult result: Any, isRedirectToAppStoreEnabled: Swift.Bool)
+  @objc func feedbackResultSubmitted(userResponse: Foundation.Data)
 }
 extension UsabillaDelegate {
   public func formDidClose(formID: Swift.String, withFeedbackResults results: [Swift.String], isRedirectToAppStoreEnabled: Swift.Bool)
   public func formDidClose(formID: Swift.String, withFeedbackResults results: [Any], isRedirectToAppStoreEnabled: Swift.Bool)
   public func formWillClose(form: UIKit.UINavigationController, formID: Swift.String, withFeedbackResults results: [UsabillaXamarin.FeedbackResult], isRedirectToAppStoreEnabled: Swift.Bool)
   public func campaignDidClose(withFeedbackResult result: Any, isRedirectToAppStoreEnabled: Swift.Bool)
+  public func feedbackResultSubmitted(userResponse: Foundation.Data)
 }
 extension UsabillaXamarin {
 }
