@@ -11,6 +11,10 @@ install:
     - msbuild UsabillaBindings/XamarinBinding.sln
   tags:
     - xamarin
+  cache:
+    key: xamarin-cache
+    paths:
+    - UsabillaBindings/
   artifacts:
     paths:
       - UsabillaBindings/Xamarin.Usabilla.Android/bin/Debug/Xamarin.Usabilla.Android.Bindings.dll
@@ -31,12 +35,20 @@ nuget:
     - nuget pack nuget/Usabilla.nuspec -OutputDirectory artifact
   tags:
     - xamarin
+  cache:
+   key: xamarin-cache
+   paths:
+    - UsabillaBindings/
   artifacts:
     paths:
       - artifact
 
 upload:
   stage: deploy
+  cache:
+    key: xamarin-cache
+    paths:
+    - UsabillaBindings/
   script:
     - nuget push artifact/*.nupkg $NUGET_ORG_KEY -src https://api.nuget.org/v3/index.json
   only:
