@@ -107,13 +107,13 @@
 
     <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/netstandard2.0/Xamarin.Usabilla.dll" target="lib/netstandard20/Xamarin.Usabilla.dll" />
     <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/netstandard2.0/Xamarin.Usabilla.pdb" target="lib/netstandard20/Xamarin.Usabilla.pdb" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.dll" target="lib/netstandard20/Xamarin.Usabilla.PCL.dll" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.pdb" target="lib/netstandard20/Xamarin.Usabilla.PCL.pdb" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/netstandard2.0/Xamarin.Usabilla.PCL.dll" target="lib/netstandard20/Xamarin.Usabilla.PCL.dll" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/netstandard2.0/Xamarin.Usabilla.PCL.pdb" target="lib/netstandard20/Xamarin.Usabilla.PCL.pdb" />
 
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.dll" target="lib/monoandroid90/Xamarin.Usabilla.PCL.dll" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.pdb" target="lib/monoandroid90/Xamarin.Usabilla.PCL.pdb" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.dll" target="lib/xamarinios10/Xamarin.Usabilla.PCL.dll" />
-    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.pdb" target="lib/xamarinios10/Xamarin.Usabilla.PCL.pdb" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/netstandard2.0/Xamarin.Usabilla.PCL.dll" target="lib/monoandroid90/Xamarin.Usabilla.PCL.dll" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/netstandard2.0/Xamarin.Usabilla.PCL.pdb" target="lib/monoandroid90/Xamarin.Usabilla.PCL.pdb" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/netstandard2.0/Xamarin.Usabilla.PCL.dll" target="lib/xamarinios10/Xamarin.Usabilla.PCL.dll" />
+    <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/bin/Debug/netstandard2.0/netstandard2.0/Xamarin.Usabilla.PCL.pdb" target="lib/xamarinios10/Xamarin.Usabilla.PCL.pdb" />
 
     <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.dll" target="lib/netstandard20+monoandroid90+xamarinios10/Xamarin.Usabilla.PCL.dll" />
     <file src="../UsabillaBindings/Xamarin.Usabilla.PCL/Xamarin.Usabilla/bin/Debug/netstandard2.0/Xamarin.Usabilla.PCL.pdb" target="lib/netstandard20+monoandroid90+xamarinios10/Xamarin.Usabilla.PCL.pdb" />
