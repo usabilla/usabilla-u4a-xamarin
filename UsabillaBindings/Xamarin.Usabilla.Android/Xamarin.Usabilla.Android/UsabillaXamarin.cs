@@ -175,7 +175,10 @@ namespace Xamarin.Usabilla
                 {
                     FeedbackResult parcelable = (FeedbackResult)intent.GetParcelableExtra(FeedbackResult.IntentFeedbackResultCampaign);
                     var aResponse = new UBFeedbackResult(parcelable);
-                    Instance.FormCallback(aResponse);
+                    if (Instance.FormCallback != null)
+                    {
+                        Instance.FormCallback(aResponse);
+                    }
                 }
             }
         }
