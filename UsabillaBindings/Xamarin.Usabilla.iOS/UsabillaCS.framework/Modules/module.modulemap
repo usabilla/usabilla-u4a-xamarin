@@ -1,0 +1,4 @@
+framework module UsabillaCS {
+  header "Usabilla-Swift.h"
+  requires objc
+}
