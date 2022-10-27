@@ -1,4 +1,0 @@
-framework module UsabillaXamarin {
-  header "Usabilla-Swift.h"
-  requires objc
-}

@@ -37,8 +37,8 @@ namespace UsabillaIos
         [Static, Export("localizedStringFile")]
         string LocalizedStringFile { get; set; }
 
-        [Static, Export("theme")]
-        UsabillaTheme Theme { get; set; }
+       // [Static, Export("theme")]
+       // UsabillaTheme Theme { get; set; }
 
         [Static, Export("dismissAutomatically")]
         bool DismissAutomatically { get; set; }
@@ -55,8 +55,8 @@ namespace UsabillaIos
         [Static, Export("removeCachedForms")]
         void RemoveCachedForms();
 
-        [Static, Export("resetCampaignDataWithCompletion:")]
-        void ResetCampaignData([NullAllowed]Action completion);
+        [Static, Export("resetCampaignData")]
+        void ResetCampaignData();
 
         [Static, Export("preloadFeedbackForms:")]
         void PreloadFeedbackForms(String[] formIDs);
@@ -93,10 +93,13 @@ namespace UsabillaIos
         void FormDidClose(string formID, FeedbackResult[] result, bool isRedirectToAppStoreEnabled);
 
         [EventArgs("FormWillClose")]
-        [Export("formWillCloseWithForm:formID:results:isRedirectToAppStoreEnabled:")]
+        [Export("formWillCloseWithForm:formID:withFeedbackResults:isRedirectToAppStoreEnabled:")]
         void FormWillClose(UINavigationController form, String formID, FeedbackResult[] result, bool isRedirectToAppStoreEnabled);
 
         [Export("campaignDidCloseWithFeedbackResult:isRedirectToAppStoreEnabled:")]
         void CampaignDidClose(FeedbackResult feedbackResult, bool isRedirectToAppStoreEnabled);
+
+        [Export("feedbackResultSubmittedWithUserResponse:")]
+        void feedbackResultSubmittedWithUserResponse(NSData userResponse);
     }
 }

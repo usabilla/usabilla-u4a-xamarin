@@ -81,7 +81,7 @@
     <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="UsabillaXamarin.framework">
+    <NativeReference Include="UsabillaCS.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
