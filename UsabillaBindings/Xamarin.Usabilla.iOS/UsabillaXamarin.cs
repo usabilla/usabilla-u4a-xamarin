@@ -13,7 +13,7 @@ namespace Xamarin.Usabilla
         private UBFeedback? _result;
         private UBFeedbackError? _error;
         private bool? _isRedirectToStoreEnabled;
-        private bool _isFormSucceeded;
+        private bool? _isFormSucceeded;
 
 
         public UBFeedbackResult(UBError err)
@@ -40,7 +40,7 @@ namespace Xamarin.Usabilla
         {
             get
             {
-                return _isFormSucceeded;
+                return (_isFormSucceeded == null) ? false : true;
             }
 
         }
@@ -151,7 +151,7 @@ namespace Xamarin.Usabilla
 
         public void Reset()
         {
-            UsabillaIos.Usabilla.ResetCampaignData(null);
+            UsabillaIos.Usabilla.ResetCampaignData();
         }
 
         public void ShowFeedbackForm(string formId, Action<IXUFormCompletionResult> result)
@@ -302,7 +302,7 @@ namespace Xamarin.Usabilla
 
             public override void FormWillClose(UINavigationController form, string formID, FeedbackResult[] withFeedbackResult, bool isRedirectToAppStoreEnabled)
             {
-                throw new NotImplementedException();
+                //throw new NotImplementedException();
             }
 
             private void presentForm()
@@ -315,6 +315,11 @@ namespace Xamarin.Usabilla
                     vc.PresentViewController(currentForm, true, null);
                     return;
                 }
+            }
+
+            public override void feedbackResultSubmittedWithUserResponse(NSData data)
+            {
+                
             }
         }
     }

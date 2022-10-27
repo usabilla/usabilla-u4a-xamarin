@@ -6,8 +6,8 @@ namespace Xamarin.Usabilla.Sample
 {
     public partial class App : Application
     {
-        private const string AppId = "[APP ID HERE]";
-
+        //private const string AppId = "[APP ID HERE]";
+        private const string AppId = "9a2fa46d-301a-4485-94bc-cae6d0697348";
         public App()
         {
             InitializeComponent();

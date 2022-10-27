@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Xamarin.Usabilla.Android.Bindings</RootNamespace>
     <AssemblyName>Xamarin.Usabilla.Android.Bindings</AssemblyName>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidClassParser>class-parse</AndroidClassParser>
