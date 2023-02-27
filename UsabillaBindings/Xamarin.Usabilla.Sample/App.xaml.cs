@@ -6,15 +6,19 @@ namespace Xamarin.Usabilla.Sample
 {
     public partial class App : Application
     {
-        //private const string AppId = "[APP ID HERE]";
-        private const string AppId = "9a2fa46d-301a-4485-94bc-cae6d0697348";
+        private const string AppId = "[APP ID HERE]";        
         public App()
         {
             InitializeComponent();
+            Action<IXUFormCompletionResult> handler = formCompletionHandler;
             UsabillaXamarin.Instance.DebugEnabled = true;
-            UsabillaXamarin.Instance.Initialize(AppId);
+            UsabillaXamarin.Instance.Initialize(AppId, formCompletionHandler);
             MainPage = new SplashPage();
-        
+        }
+
+        private void formCompletionHandler(IXUFormCompletionResult res)
+        {
+            System.Diagnostics.Debug.WriteLine("Result of showForm : {0}", res.isFormSucceeded);
         }
 
         protected override void OnStart()

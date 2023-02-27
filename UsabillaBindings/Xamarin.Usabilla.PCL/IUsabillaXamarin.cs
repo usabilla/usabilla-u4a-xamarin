@@ -33,7 +33,7 @@ namespace Xamarin.Usabilla.PCL
 
         IList<string> DefaultMasks { get; }
 
-        void Initialize(string appId);
+        void Initialize(string appId, Action<IXUFormCompletionResult> result);
 
         void SendEvent(string anEvent, Action<IXUFormCompletionResult> result);
 
