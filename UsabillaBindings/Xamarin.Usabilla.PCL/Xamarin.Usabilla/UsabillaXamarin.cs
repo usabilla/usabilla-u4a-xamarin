@@ -45,7 +45,7 @@ namespace Xamarin.Usabilla
             }
         }
 
-        public void Initialize(string appId)
+        public void Initialize(string appId, Action<IXUFormCompletionResult> result = null)
         {
             throw new NotImplementedException("Dummy Implementation for Initialize; should not be called");
         }

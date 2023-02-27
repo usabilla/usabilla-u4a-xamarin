@@ -186,11 +186,11 @@ namespace Xamarin.Usabilla
         static UsabillaXamarin() { }
         private UsabillaXamarin() { }
 
-        public void Initialize(string appId)
+        public void Initialize(string appId, Action<IXUFormCompletionResult> result = null)
         {
             UsabillaAndroid.Usabilla.Instance.Initialize(Application.Context, appId);
             UsabillaAndroid.Usabilla.Instance.UpdateFragmentManager(Activity.SupportFragmentManager);
-
+            FormCallback = result;
 
             campaignReceiver = new CampaignCloseReceiver();
             AndroidX.LocalBroadcastManager.Content.LocalBroadcastManager.GetInstance(Application.Context).RegisterReceiver(campaignReceiver, campaignFilter);

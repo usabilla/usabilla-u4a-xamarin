@@ -20,6 +20,9 @@
     <ProjectReference Include="..\Xamarin.Usabilla.PCL\Xamarin.Usabilla\Xamarin.Usabilla.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <Compile Remove="Xamarin.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
   </ItemGroup>
 </Project>

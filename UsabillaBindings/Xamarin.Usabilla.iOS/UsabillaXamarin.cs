@@ -137,10 +137,15 @@ namespace Xamarin.Usabilla
         static UsabillaXamarin() { }
         private UsabillaXamarin() { }
 
-        public void Initialize(string appId)
+        public void Initialize(string appId, Action<IXUFormCompletionResult> result = null)
         {
             UsabillaIos.Usabilla.Initialize(appId, null);
             UsabillaIos.Usabilla.Delegate = aDelegate;
+            if (result != null)
+            {
+                aDelegate.Result = result;
+            }
+            
         }
 
         public void SendEvent(string anEvent, Action<IXUFormCompletionResult> result)
@@ -278,7 +283,10 @@ namespace Xamarin.Usabilla
             {
                 var obj = withFeedbackResult;
                 var aResponse = new UBFeedbackResult(obj, isRedirectToAppStoreEnabled);
-                result.Invoke(aResponse);
+                if (result != null)
+                {
+                    result.Invoke(aResponse);
+                }                
             }
 
             public override void FormDidClose(string formID, FeedbackResult[] withFeedbackResults, bool isRedirectToAppStoreEnabled)

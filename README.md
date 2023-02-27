@@ -38,6 +38,21 @@ The initialization of the library is done with:
 UsabillaXamarin.Instance.Initialize("[YOUR APP ID HERE]");
 ```
 
+With the introduction of Standard Events, you can add a callback on initialize, to have callback when the standard events campaign is completed.
+This is optional to the initialiser. If no handler is provided, there are no callbacks from standard events  campaigns:
+
+```c#
+Action<IXUFormCompletionResult> handler = formCompletionHandler;
+UsabillaXamarin.Instance.Initialize("[YOUR APP ID HERE]", handler);
+
+private void formCompletionHandler(IXUFormCompletionResult res)
+        {
+            System.Diagnostics.Debug.WriteLine("Result of showForm : {0}", res.isFormSucceeded);
+        }
+
+```
+Check out the sample app provided for more information
+
 To present the form:
 ```C#
 UsabillaXamarin.Instance.ShowFeedbackForm("[YOUR FORM ID HERE]", (XUFormCompletionResult) => {
