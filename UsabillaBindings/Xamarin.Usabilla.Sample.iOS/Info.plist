@@ -30,7 +30,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.usabilla.Usabilla-Xamarin</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
