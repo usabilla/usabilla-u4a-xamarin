@@ -4,6 +4,7 @@ using Android.OS;
 using Com.Usabilla.Sdk.Ubform.Sdk.Form;
 using Android.Graphics;
 using Com.Usabilla.Sdk.Ubform.Sdk.Entity;
+using Com.Usabilla.Sdk.Ubform.Utils;
 
 namespace Xamarin.Usabilla
 {
@@ -13,27 +14,33 @@ namespace Xamarin.Usabilla
         private const string EXTRA_FORMID = "extra_form_id";
         private const string EXTRA_SCREENSHOT = "extra_screenshot";
         private const string FRAGMENT_TAG = "passive_feedback_activity";
-        private readonly IntentFilter passiveFilter = new IntentFilter(UsabillaAndroid.UbConstants.IntentCloseForm);
-        private PassiveFormCloseReceiver passiveReceiver;
 
-        private class PassiveFormCloseReceiver : BroadcastReceiver
+
+        private static bool isFormLoadedSuccessfully = false;
+        private FormClosingObserve formClosingObserve;
+        private class FormClosingObserve : Java.Lang.Object, AndroidX.Lifecycle.IObserver
         {
             private readonly PassiveFeedbackActivity activity;
 
-            public PassiveFormCloseReceiver(PassiveFeedbackActivity activity)
+            public FormClosingObserve(PassiveFeedbackActivity activity)
             {
                 this.activity = activity;
             }
 
-            public override void OnReceive(Context context, Intent intent)
+            public void OnChanged(Java.Lang.Object obj)
             {
-                if (intent != null)
+                if (!isFormLoadedSuccessfully) return;
+
+                ClosingFormData closingFormData = obj as ClosingFormData;
+                if (closingFormData.FormType.Equals(FormType.PassiveFeedback))
                 {
-                    FeedbackResult parcelable = (FeedbackResult)intent.GetParcelableExtra(FeedbackResult.IntentFeedbackResult);
+                    FeedbackResult parcelable = closingFormData.FeedbackResult;
                     var aResponse = new UBFeedbackResult(parcelable);
                     UsabillaXamarin.Instance.FormCallback(aResponse);
+                    isFormLoadedSuccessfully = false;
+                    activity.Finish();
+                  
                 }
-                activity.Finish();
             }
         }
 
@@ -51,7 +58,7 @@ namespace Xamarin.Usabilla
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_passive);
 
-            passiveReceiver = new PassiveFormCloseReceiver(this);
+            formClosingObserve = new FormClosingObserve(this);
 
             if (savedInstanceState == null)
             {
@@ -69,13 +76,13 @@ namespace Xamarin.Usabilla
         protected override void OnStart()
         {
             base.OnStart();
-            AndroidX.LocalBroadcastManager.Content.LocalBroadcastManager.GetInstance(this).RegisterReceiver(passiveReceiver, passiveFilter);
+            UsabillaAndroid.Usabilla.Instance.ClosingData.ObserveForever(formClosingObserve);
         }
-
+        
         protected override void OnStop()
         {
             base.OnStop();
-            AndroidX.LocalBroadcastManager.Content.LocalBroadcastManager.GetInstance(this).UnregisterReceiver(passiveReceiver);
+            UsabillaAndroid.Usabilla.Instance.ClosingData.RemoveObserver(formClosingObserve);
         }
 
         protected override void OnDestroy()
@@ -96,6 +103,7 @@ namespace Xamarin.Usabilla
         {
             if (!IsDestroyed)
             {
+                isFormLoadedSuccessfully = true;
                 SupportFragmentManager.BeginTransaction().Replace(Resource.Id.container, parameter.Fragment, FRAGMENT_TAG).Commit();
                 return;
             }

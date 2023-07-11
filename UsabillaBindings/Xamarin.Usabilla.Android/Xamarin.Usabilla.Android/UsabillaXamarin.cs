@@ -5,6 +5,8 @@ using Android.Content;
 using Android.Util;
 using Xamarin.Usabilla.PCL;
 using Com.Usabilla.Sdk.Ubform.Sdk.Entity;
+using Com.Usabilla.Sdk.Ubform.Utils;
+using Com.Usabilla.Sdk.Ubform.Sdk.Form;
 
 namespace Xamarin.Usabilla
 {
@@ -161,19 +163,18 @@ namespace Xamarin.Usabilla
         internal Action<IXUFormCompletionResult> FormCallback { get; set; }
         public string LocalizedStringFile { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        private readonly IntentFilter campaignFilter = new IntentFilter(UsabillaAndroid.UbConstants.IntentCloseCampaign);
-        private CampaignCloseReceiver campaignReceiver;
-
-        private class CampaignCloseReceiver : BroadcastReceiver
+    
+        private ClosingObserve campaignClosingObserve;
+        private class ClosingObserve : Java.Lang.Object, AndroidX.Lifecycle.IObserver
         {
-
-            public CampaignCloseReceiver() { }
-
-            public override void OnReceive(Context context, Intent intent)
+            public ClosingObserve() { }
+           
+            public void OnChanged(Java.Lang.Object obj)
             {
-                if (intent != null)
+                ClosingFormData closingFormData = obj as ClosingFormData;
+                if (closingFormData.FormType.Equals(FormType.Campaign))
                 {
-                    FeedbackResult parcelable = (FeedbackResult)intent.GetParcelableExtra(FeedbackResult.IntentFeedbackResultCampaign);
+                    FeedbackResult parcelable = closingFormData.FeedbackResult;
                     var aResponse = new UBFeedbackResult(parcelable);
                     if (Instance.FormCallback != null)
                     {
@@ -192,8 +193,8 @@ namespace Xamarin.Usabilla
             UsabillaAndroid.Usabilla.Instance.UpdateFragmentManager(Activity.SupportFragmentManager);
             FormCallback = result;
 
-            campaignReceiver = new CampaignCloseReceiver();
-            AndroidX.LocalBroadcastManager.Content.LocalBroadcastManager.GetInstance(Application.Context).RegisterReceiver(campaignReceiver, campaignFilter);
+            campaignClosingObserve = new ClosingObserve();
+            UsabillaAndroid.Usabilla.Instance.ClosingData.ObserveForever(campaignClosingObserve);
         }
 
         public void SendEvent(string anEvent, Action<IXUFormCompletionResult> result)
@@ -221,6 +222,7 @@ namespace Xamarin.Usabilla
 
         public bool Dismiss()
         {
+            UsabillaAndroid.Usabilla.Instance.ClosingData.RemoveObserver(campaignClosingObserve);
             return UsabillaAndroid.Usabilla.Instance.Dismiss(Application.Context);
         }
 
