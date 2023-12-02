@@ -13,6 +13,10 @@ For more information please check [here](https://docs.microsoft.com/en-us/dotnet
 dotnet nuget locals all --clear
 ```
 
+## Support
+
+If you need help, want to report an issue, or have a question please reach out to the support team via our [Help Center](https://help.surveymonkey.com/en/contact/#getfeedback) or email [support@usabilla.com](mailto:support@usabilla.com)
+
 ## Installation
 
 Installation is done via NuGet: <https://www.nuget.org/packages/Usabilla.Xamarin>
@@ -22,6 +26,7 @@ Installation is done via NuGet: <https://www.nuget.org/packages/Usabilla.Xamarin
 - `Install-Package Xamarin.Kotlin.StdLib -Version 1.5.20` 
 If you are targeting Android <= 26, you also need;
 - `Install-Package Xamarin.Android.Tools.DesugarJdkLibs -Version 1.1.5`
+
 
 ## Usage
 
